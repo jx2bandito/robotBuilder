@@ -21711,8 +21711,8 @@ class samuraiHead extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Componen
 			autoAlpha: 0,
 			scale: 0
 		}).from(".eye", 1, {
-			scale: "0%",
-			rotationX: "180deg",
+			autoAlpha: 0,
+			rotationX: "-89deg",
 			ease: Bounce.easeOut
 		}, "-=.75").to(".eye", 1, {
 			rotationX: "45deg",
