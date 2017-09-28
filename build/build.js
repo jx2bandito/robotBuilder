@@ -21671,7 +21671,58 @@ class samuraiHead extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Componen
 	}
 
 	componentDidMount() {
-		__WEBPACK_IMPORTED_MODULE_2_gsap__["TweenMax"].to("");
+		var samuraiTL = new TimelineMax();
+		samuraiTL.from(".samuraiHead", 1, {
+			y: "1000%"
+		}).from(".helmet", 1, {
+			y: "-1000%",
+			scale: 0,
+			autoAlpha: 0
+		}, "armorForming").from(".leftArmor", 1, {
+			x: "-1000%",
+			scale: 0,
+			autoAlpha: 0
+		}, "armorForming").from(".rightArmor", 1, {
+			x: "1000%",
+			scale: 0,
+			autoAlpha: 0
+		}, "armorForming").set(".samuraiV", { css: { zIndex: "-250" } }).fromTo(".samuraiV", 1, {
+			scale: "0",
+			rotationZ: "-10800deg",
+			x: "-1000%",
+			y: "-50%",
+			ease: Power4.easeOut
+		}, {
+			scale: "1.2",
+			rotationZ: "-1080deg",
+			x: "200%"
+		}, "-=.5").set(".samuraiV", { css: { zIndex: "2" } }).to(".samuraiV", .5, {
+			scale: 1,
+			rotationZ: "0deg",
+			x: "0%",
+			y: "0%",
+			ease: Power4.easeOut
+		}).from(".mouth", 1, {
+			autoAlpha: 0,
+			scale: 1.5,
+			y: "20%"
+		}).from(".neckArmor", 1, {
+			y: "-40%",
+			autoAlpha: 0,
+			scale: 0
+		}).from(".eye", 1, {
+			scale: "0%",
+			rotationX: "180deg",
+			ease: Bounce.easeOut
+		}, "-=.75").to(".eye", 1, {
+			rotationX: "45deg",
+			backgroundColor: "#f1c40f"
+		}).to(".samuraiHead", 2, {
+			scale: 1.1,
+			ease: RoughEase.ease.config({
+				points: 50
+			})
+		}, "-=1").timeScale(2);
 	}
 
 	render() {
@@ -21682,16 +21733,12 @@ class samuraiHead extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Componen
 				'div',
 				{ className: this.state.className, onClick: this.handleClick },
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'samuraiV' }),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					'span',
-					null,
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'leftEye eye' }),
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'rightEye eye' })
-				),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'leftEye eye' }),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'rightEye eye' }),
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'mouth' }),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'leftArmor armorPiece' }),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'rightArmor armorPiece' }),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'helmet' }),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'leftArmor armorPiece armor' }),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'rightArmor armorPiece armor' }),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'helmet armor' }),
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'neckArmor' })
 			)
 		);
@@ -21741,7 +21788,7 @@ exports = module.exports = __webpack_require__(15)(undefined);
 
 
 // module
-exports.push([module.i, ".samuraiHead {\n  top: 10vw;\n  border: 0.66667vw solid black;\n  border-right-color: red;\n  border-left-color: red;\n  position: absolute;\n  background: #8f8f8f;\n  width: 10vw;\n  border-radius: 2.5vw 2.5vw 6.66667vw 6.66667vw;\n  height: 10vw;\n  box-sizing: border-box;\n  left: calc(50% - 10vw/2);\n  text-align: center;\n  animation: growing 5s infinite;\n  z-index: -5; }\n  .samuraiHead .samuraiV {\n    position: absolute;\n    display: inline-block;\n    top: -4.16667vw;\n    left: calc(50% - 10vw/2.4);\n    width: 8.33333vw;\n    height: 10vw;\n    border: 2vw solid gold;\n    box-sizing: border-box;\n    background: black;\n    background-size: cover;\n    -webkit-clip-path: polygon(50% 54%, 100% 0, 50% 38%, 0 0);\n    clip-path: polygon(50% 54%, 100% 0, 50% 38%, 0 0); }\n  .samuraiHead .eye {\n    width: 2.5vw;\n    position: absolute;\n    display: inline-block;\n    height: 2vw;\n    top: 2vw;\n    background: darkorange;\n    border-bottom-right-radius: 50%;\n    border-bottom-left-radius: 50%;\n    background: #c0392b;\n    animation: glowing 5s infinite; }\n  .samuraiHead .leftEye {\n    left: 1.11111vw;\n    transform: rotateZ(18deg) skew(15deg); }\n  .samuraiHead .rightEye {\n    right: 1.11111vw;\n    transform: rotateZ(-18deg) skew(-15deg); }\n  .samuraiHead .mouth {\n    position: absolute;\n    display: block;\n    left: calc(50% - calc(10vw - 10vw/8)/2);\n    bottom: 0;\n    width: calc(10vw - 10vw/8);\n    height: 4vw;\n    background: #7f7f7f;\n    border-bottom-left-radius: 100%;\n    border-bottom-right-radius: 100%;\n    transform: scale(0.98); }\n  .samuraiHead .armorPiece {\n    background: transparent;\n    display: block;\n    position: absolute;\n    top: -20%;\n    border: solid red;\n    border-width: 5vw 2.5vw;\n    border-top-color: transparent;\n    overflow: hidden;\n    z-index: -3; }\n  .samuraiHead .leftArmor {\n    left: -55%;\n    border-left-color: transparent; }\n  .samuraiHead .rightArmor {\n    right: -55%;\n    border-right-color: transparent; }\n  .samuraiHead .helmet {\n    z-index: -1;\n    height: 5vw;\n    width: calc(10vw - 10vw/8);\n    position: absolute;\n    top: -39%;\n    border-right-color: transparent;\n    border-left-color: transparent;\n    left: calc(50% - calc(10vw - 10vw/8)/2);\n    border-radius: 50% 50% 0% 0%;\n    display: block;\n    background-color: red;\n    border: 0.33333vw solid #998100;\n    border-right-color: transparent;\n    border-left-color: transparent;\n    box-sizing: border-box; }\n  .samuraiHead .neckArmor {\n    z-index: -4;\n    width: 10vw;\n    height: 2.5vw;\n    position: absolute;\n    left: calc(50% - calc(10vw - 10vw/8)/2);\n    bottom: 10%;\n    background: #cc0000; }\n\n@keyframes glowing {\n  0% {\n    filter: brightness(1.5); }\n  50% {\n    filter: brightness(1); }\n  100% {\n    filter: brightness(1.5); } }\n", ""]);
+exports.push([module.i, ".samuraiHead {\n  top: 10vw;\n  border: 0.66667vw solid black;\n  border-right-color: red;\n  border-left-color: red;\n  position: absolute;\n  background: #8f8f8f;\n  width: 10vw;\n  border-radius: 2.5vw 2.5vw 6.66667vw 6.66667vw;\n  height: 10vw;\n  box-sizing: border-box;\n  left: calc(50% - 10vw/2);\n  text-align: center;\n  animation: growing 5s infinite;\n  z-index: -5; }\n  .samuraiHead .samuraiV {\n    position: absolute;\n    display: inline-block;\n    top: -4.16667vw;\n    left: calc(50% - 10vw/2.4);\n    width: 8.33333vw;\n    height: 10vw;\n    border: 2vw solid gold;\n    box-sizing: border-box;\n    background: black;\n    background-size: cover;\n    -webkit-clip-path: polygon(50% 54%, 100% 0, 50% 38%, 0 0);\n    clip-path: polygon(50% 54%, 100% 0, 50% 38%, 0 0); }\n  .samuraiHead .eye {\n    width: 2.5vw;\n    position: absolute;\n    display: inline-block;\n    height: 2vw;\n    top: 2.5vw;\n    background: darkorange;\n    border-bottom-right-radius: 50%;\n    border-bottom-left-radius: 50%;\n    background: #c0392b;\n    animation: glowing 5s infinite; }\n  .samuraiHead .leftEye {\n    left: 1.11111vw;\n    transform: rotateZ(18deg) skew(15deg); }\n  .samuraiHead .rightEye {\n    right: 1.11111vw;\n    transform: rotateZ(-18deg) skew(-15deg); }\n  .samuraiHead .mouth {\n    position: absolute;\n    display: block;\n    left: calc(50% - calc(10vw - 10vw/8)/2);\n    bottom: 0;\n    width: calc(10vw - 10vw/8);\n    height: 4vw;\n    background: #7f7f7f;\n    border-bottom-left-radius: 100%;\n    border-bottom-right-radius: 100%;\n    transform: scale(0.98); }\n  .samuraiHead .armorPiece {\n    background: transparent;\n    display: block;\n    position: absolute;\n    top: -20%;\n    border: solid red;\n    border-width: 5vw 2.5vw;\n    border-top-color: transparent;\n    overflow: hidden;\n    z-index: -3; }\n  .samuraiHead .leftArmor {\n    left: -55%;\n    border-left-color: transparent; }\n  .samuraiHead .rightArmor {\n    right: -55%;\n    border-right-color: transparent; }\n  .samuraiHead .helmet {\n    z-index: -1;\n    height: 5vw;\n    width: calc(10vw - 10vw/8);\n    position: absolute;\n    top: -39%;\n    border-right-color: transparent;\n    border-left-color: transparent;\n    left: calc(50% - calc(10vw - 10vw/8)/2);\n    border-radius: 50% 50% 0% 0%;\n    display: block;\n    background-color: red;\n    border: 0.33333vw solid #998100;\n    border-right-color: transparent;\n    border-left-color: transparent;\n    box-sizing: border-box; }\n  .samuraiHead .neckArmor {\n    z-index: -15;\n    width: 10vw;\n    height: 2.5vw;\n    position: absolute;\n    left: calc(50% - calc(10vw - 10vw/8)/2);\n    bottom: 10%;\n    background: #cc0000; }\n\n@keyframes glowing {\n  0% {\n    filter: brightness(1.5); }\n  50% {\n    filter: brightness(1); }\n  100% {\n    filter: brightness(1.5); } }\n", ""]);
 
 // exports
 
