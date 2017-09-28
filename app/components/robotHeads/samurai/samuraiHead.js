@@ -72,8 +72,8 @@ export default class samuraiHead extends React.Component{
 			scale: 0
 		})
 		.from(".eye", 1, {
-			scale: "0%",
-			rotationX: "180deg",
+			autoAlpha: 0,
+			rotationX: "-89deg",
 			ease: Bounce.easeOut
 		}, "-=.75")
 		.to(".eye", 1, {
