@@ -1,7 +1,7 @@
 
 .samuraiHead{
-	$baseSize: 15vw;
-	top: $baseSize/2;
+	$baseSize: 10vw;
+	top: $baseSize;
 	border: $baseSize/15 solid black;
 	border-right-color: red;
 	border-left-color: red;
@@ -14,7 +14,7 @@
 	left: calc(50% - #{$baseSize}/2);
 	text-align: center;
 	animation: growing 5s infinite;
-	
+	z-index: -5;
 	
 	.samuraiV{
 		position: absolute;
@@ -25,19 +25,18 @@
 		height: $baseSize/1;
 		border: $baseSize/5 solid gold;
 		box-sizing: border-box;
-		background: red;
+		background: black;
 		background-size: cover;
 		-webkit-clip-path: polygon(50% 54%, 100% 0, 50% 38%, 0 0);
 		clip-path: polygon(50% 54%, 100% 0, 50% 38%, 0 0);
 	}
-	
 	
 	.eye{
 		width: $baseSize/4;
 		position: absolute;
 		display: inline-block;
 		height: $baseSize/5;
-		top: $baseSize/5;
+		top: $baseSize/4;
 		background: darkorange;
 		border-bottom-right-radius: 50%;
 		border-bottom-left-radius: 50%;
@@ -68,6 +67,55 @@
 		transform: scale(0.98);
 	}
 	
+	.armorPiece{
+		background: transparent;
+		display: block;
+		position: absolute;
+		top: -20%;
+		border: solid red;
+		border-width: $baseSize/2 $baseSize/4;
+		border-top-color: transparent;
+		overflow: hidden;
+		z-index: -3;
+	}
+	
+	.leftArmor{
+		left: -55%;
+		border-left-color: transparent;
+	}
+	
+	.rightArmor{
+		right: -55%;
+		border-right-color: transparent;
+	}
+	
+	.helmet{
+		z-index: -1;
+		height: $baseSize/2;
+		width: calc(#{$baseSize} - #{$baseSize}/8);
+		position: absolute;
+		top: -39%;
+		border-right-color: transparent;
+		border-left-color: transparent;
+		left: calc(50% - calc(#{$baseSize} - #{$baseSize}/8)/2);
+		border-radius: 50% 50% 0% 0%;
+		display: block;
+		background-color: red;
+		border: $baseSize/30 solid darken(gold, 20%);
+		border-right-color: transparent;
+		border-left-color: transparent;
+		box-sizing: border-box;
+	}
+	
+	.neckArmor{
+		z-index: -15;
+		width: $baseSize;
+		height: $baseSize/4;
+		position: absolute;
+		left: calc(50% - calc(#{$baseSize} - #{$baseSize}/8)/2);
+		bottom: 10%;
+		background: darken(red, 10%);
+	}
 	
 	@keyframes glowing{
 		0%{
