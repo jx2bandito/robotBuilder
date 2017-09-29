@@ -46,12 +46,10 @@
 	
 	.leftEye{
 		left: $baseSize/9;
-		transform: rotateZ(18deg) skew(15deg);
 	}
 	
 	.rightEye{
 		right: $baseSize/9;
-		transform: rotateZ(-18deg) skew(-15deg);
 	}
 	
 	.mouth{
