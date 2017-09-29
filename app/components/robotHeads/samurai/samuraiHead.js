@@ -84,7 +84,6 @@ export default class samuraiHead extends React.Component{
 			backgroundColor: "#f1c40f",
 			ease: Elastic.easeOut
 		})
-
 		/*.to(".samuraiHead", 2, {
 			scale: 1.1,
 			ease: RoughEase.ease.config({

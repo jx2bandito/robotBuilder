@@ -1,6 +1,6 @@
 import React from 'react';
 import Style from './selectBoxStyle.scss';
-
+import HeadSelect from "./headSelect/headSelect.js";
 export default class SelectBox extends React.Component{
 	constructor(props){
 		super(props);
@@ -10,7 +10,7 @@ export default class SelectBox extends React.Component{
 	render(){
 		return (
 			<div className='selectBoxContainer'>
-				<span className='headContainer'>Head</span>
+				<HeadSelect />
 				<span className='bodyContainer'>Body</span>
 				<span className='rArmContainer'>Arms</span>
 				<span className='feetContainer'>Feet</span>

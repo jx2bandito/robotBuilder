@@ -1,6 +1,6 @@
 import React from 'react';
 import SamuraiHead from './robotHeads/samurai/samuraiHead.js';
-import SelectBox from "./UI/selectBox.js";
+import SelectBox from "./UI/selectBoxComponents/selectBox.js";
 
 
 
@@ -13,10 +13,10 @@ export default class App extends React.Component{
 	
 	render(){
 		return (
-		<div>
-		<SelectBox />
-		<SamuraiHead className="roboto"/>
-		</div>
+			<div>
+			<SelectBox />
+			<SamuraiHead />
+			</div>
 		)
 	}
 }
