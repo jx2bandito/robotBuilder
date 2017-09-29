@@ -10,14 +10,9 @@ export default class samuraiHead extends React.Component{
 			className: "samuraiHead"
 		}
 		this.handleClick = this.handleClick.bind(this);
-		
-		
 	}
 	
 	handleClick(){
-		this.setState({
-			className: "samuraiHead"
-		})
 	}
 	
 	componentDidMount(){
@@ -71,6 +66,14 @@ export default class samuraiHead extends React.Component{
 			autoAlpha: 0,
 			scale: 0
 		})
+		.to(".rightEye", 0, {
+			rotationZ: "-18deg",
+			skew: "-18deg"
+		},"-=.75")
+		.to(".leftEye", 0, {
+			rotationZ: "18deg",
+			skew: "18deg"
+		}, "-=.75")
 		.from(".eye", 1, {
 			autoAlpha: 0,
 			rotationX: "-89deg",
@@ -78,18 +81,18 @@ export default class samuraiHead extends React.Component{
 		}, "-=.75")
 		.to(".eye", 1, {
 			rotationX: "45deg",
-			backgroundColor: "#f1c40f"
+			backgroundColor: "#f1c40f",
+			ease: Elastic.easeOut
 		})
-		.to(".samuraiHead", 2, {
+
+		/*.to(".samuraiHead", 2, {
 			scale: 1.1,
 			ease: RoughEase.ease.config({
 				points: 50
 			})
-		}, "-=1")
+		}, "-=1")*/
 		.timeScale(2)
 		;
-		
-		
 	}
 	
 	render(){
@@ -108,6 +111,5 @@ export default class samuraiHead extends React.Component{
 			</div>
 		);
 	}
-	
 }
 
