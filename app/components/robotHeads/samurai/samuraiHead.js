@@ -1,7 +1,6 @@
 import React from 'react';
 import Style from './samuraiheadStyle.scss';
-import {TweenMax} from 'gsap';
-
+import gsap from 'gsap';
 
 export default class samuraiHead extends React.Component{
 	constructor(props){
@@ -23,18 +22,18 @@ export default class samuraiHead extends React.Component{
 		})
 		.from(".helmet", 1, {
 			y: "-1000%",
-			scale: 0,
-			autoAlpha: 0
+			autoAlpha: 0,
+			ease: Power4.easeOut
 		}, "armorForming")
 		.from(".leftArmor", 1, {
 			x: "-1000%",
-			scale: 0,
-			autoAlpha: 0
+			autoAlpha: 0,
+			ease: Power4.easeOut
 		}, "armorForming")
 		.from(".rightArmor", 1, {
 			x: "1000%",
-			scale: 0,
-			autoAlpha: 0
+			autoAlpha: 0,
+			ease: Power4.easeOut
 		}, "armorForming")
 		.set(".samuraiV", {css: {zIndex: "-250"}})
 		.fromTo(".samuraiV", 1, {
