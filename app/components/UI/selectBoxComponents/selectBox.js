@@ -8,7 +8,7 @@ export default class SelectBox extends React.Component{
 		super(props);
 		
 		this.state = {
-			addTabClass1: null,
+			addTabClass1: "toggledOn",
 			addTabClass2: null,
 			addTabClass3: null,
 			addTabClass4: null
@@ -25,12 +25,14 @@ export default class SelectBox extends React.Component{
 		this.setState(newState);
 	}
 	
+	
 	toggleOff(tabNum){////Takes an integer indicating which tab to affect
 		var newKey = "addTabClass" + tabNum
 		var newState = {};
 		newState[newKey] = null;
 		this.setState(newState);
 	}
+	
 	
 	render(){
 		return (
