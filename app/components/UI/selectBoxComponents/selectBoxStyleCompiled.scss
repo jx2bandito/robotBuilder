@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css?family=VT323');
+
+.selectBoxContainer {
+  font-family: vt323;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 30vw;
+  min-width: 350px;
+  position: absolute;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  left: 0;
+  top: 2vw;
+  height: 400px;
+}
+.selectBoxContainer .tab {
+  -webkit-backface-visibility: hidden;
+  margin-bottom: 5px;
+  min-width: 150px;
+  overflow: hidden;
+  box-sizing: content-box;
+  left: -8%;
+  border: 8px outset #007f00;
+  border-top-width: 4px;
+  border-left-width: 4px;
+  border-left-color: black;
+  width: 25%;
+  height: 25%;
+  background-color: black;
+  position: relative;
+  -webkit-transition: width 0.25s ease-in-out, height 0.25s ease-in-out;
+  transition: width 0.25s ease-in-out, height 0.25s ease-in-out;
+  position: relative;
+  padding: 0;
+  color: lightgreen !important;
+}
+.selectBoxContainer .tab .fa-toggle-right {
+  display: none;
+  right: calc(2.5% - 2.5px);
+  top: 40%;
+  position: absolute;
+}
+.selectBoxContainer .tab .fa-toggle-left {
+  display: none;
+  right: calc(7.5% + 2.5px);
+  top: 40%;
+  position: absolute;
+}
+.selectBoxContainer .tab p {
+  margin: auto;
+  box-sizing: content-box;
+  font-size: 18px;
+  position: absolute;
+  width: 100%;
+  top: 37.5%;
+  bottom: 0;
+  left: 25%;
+  text-align: center;
+  -webkit-transition: opacity 0.5s, top 0.5s;
+  transition: opacity 0.5s, top 0.5s;
+}
+.selectBoxContainer .tab .preview {
+  -webkit-backface-visibility: hidden;
+  width: 75%;
+  height: 59%;
+  top: 25%;
+  left: 10%;
+  position: absolute;
+  text-align: center;
+  background: transparent;
+  border: 1px solid darkgreen;
+  box-sizing: border-box;
+  display: none;
+}
+.selectBoxContainer .tab .preview .portrait {
+  width: 35%;
+  height: 100%;
+  border-right: 1px solid green;
+  box-sizing: border-box;
+  background-color: #121;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.selectBoxContainer .tab .preview .description {
+  position: absolute;
+  width: 65%;
+  left: 35%;
+  height: 100%;
+  padding-top: 20px;
+  box-sizing: border-box;
+  display: block;
+  font-size: calc(10px + .5vw);
+}
+.selectBoxContainer .tab.toggledOn {
+  width: 100%;
+  height: 150%;
+}
+.selectBoxContainer .tab.toggledOn p {
+  top: 5%;
+  -webkit-animation: changeFont 0.25s forwards;
+          animation: changeFont 0.25s forwards;
+}
+.selectBoxContainer .tab.toggledOn .preview, .selectBoxContainer .tab.toggledOn .fa {
+  -webkit-animation: flipIn 0.55s linear;
+          animation: flipIn 0.55s linear;
+  -webkit-animation-delay: flipIn 0.75s;
+          animation-delay: flipIn 0.75s;
+  display: initial;
+}
+
+@-webkit-keyframes flipIn {
+  0% {
+    -webkit-transform: rotateX(89deg);
+            transform: rotateX(89deg);
+  }
+  50% {
+    -webkit-transform: rotateX(45deg);
+            transform: rotateX(45deg);
+  }
+  100% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+}
+
+@keyframes flipIn {
+  0% {
+    -webkit-transform: rotateX(89deg);
+            transform: rotateX(89deg);
+  }
+  50% {
+    -webkit-transform: rotateX(45deg);
+            transform: rotateX(45deg);
+  }
+  100% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+}
+@-webkit-keyframes changeFont {
+  0% {
+    font-size: 18px;
+  }
+  100% {
+    font-size: 32px;
+  }
+}
+@keyframes changeFont {
+  0% {
+    font-size: 18px;
+  }
+  100% {
+    font-size: 32px;
+  }
+}
+
