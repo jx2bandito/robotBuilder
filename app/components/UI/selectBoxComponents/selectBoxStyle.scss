@@ -1,20 +1,173 @@
 @import url('https://fonts.googleapis.com/css?family=VT323');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css');
 
-.selectBoxContainer{
-	font-family: 'VT323', monospace;
-	$baseSize: 20vw;
-	width: $baseSize;
-	height: $baseSize * 2;
-	border: .2vw solid black;
-	position: absolute;
-	display: flex;
-	flex-direction: column;
-	span{
-		padding-left: 3px;
-		width: 100%;
-		height: 25%;
-		border-bottom: .1vw solid black;
-		border-top: .1vw solid black;
-	}
+.selectBoxContainer {
+  font-family: vt323;
+  display: flex;
+  width: 30vw;
+  min-width: 350px;
+  position: absolute;
+  flex-direction: column;
+  left: 0;
+  top: 2vw;
+  height: 400px;
+  .tab {
+    -webkit-backface-visibility: hidden;
+    margin-bottom: 5px;
+    $iColor: #007f00;
+    min-width: 150px;
+    overflow: hidden;
+    box-sizing: content-box;
+    // &:nth-child(1) {
+    //   left: -10%;
+    //   transform: skew(10deg);
+    // }
+    // &:nth-child(4) {
+    //   left: -10%;
+    //   transform: skew(-10deg);
+    // }
+    left: -8%;
+    border: 8px outset $iColor;
+    border-top-width: 4px;
+    border-left-width: 4px;
+    border-left-color: black;
+    width: 25%;
+    height: 25%;
+    background-color: black;
+    position: relative;
+    transition: width 0.25s ease-in-out, height 0.25s ease-in-out;
+    position: relative;
+    padding: 0;
+    color: lightgreen!important;
+    .fa-toggle-right{
+      display: none;
+      right: calc(2.5% - 2.5px);
+      top: 40%;
+      position: absolute;
+    }
+    .fa-toggle-left{
+      display: none;
+      right: calc(7.5% + 2.5px);
+      top: 40%;
+      position: absolute;
+    }
+    p {
+      margin: auto;
+      box-sizing: content-box;
+      font-size: 18px;
+      position: absolute;
+      width: 100%;
+      top: 37.5%;
+      bottom: 0;
+      left: 25%;
+      text-align: center;
+      transition: opacity 0.5s, top 0.5s;
+    }
+
+    .preview {
+      -webkit-backface-visibility: hidden;
+      width: 75%;
+      height: 59%;
+      top: 25%;
+      left: 10%;
+      position: absolute;
+      text-align: center;
+      background: transparent;
+      border: 1px solid darkgreen;
+      box-sizing: border-box;
+      display: none;
+      .portrait{
+        width: 35%;
+        height: 100%;
+        border-right: 1px solid green;
+        box-sizing: border-box;
+        background-color: #121;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      .description{
+        position: absolute;
+        width: 65%;
+        left: 35%;
+        height: 100%;
+        padding-top: 20px;
+        box-sizing: border-box;
+        display: block;
+        font-size: calc(10px + .5vw);
+      }
+    }
+    // &:nth-child(1) {
+    //   .preview {
+    //     border-left-color: black;
+    //   }
+    //   .preview::after {
+    //     content: "";
+    //     position: absolute;
+    //     display: block;
+    //     width: 17%;
+    //     height: 102%;
+    //     top: -1%;
+    //     left: -13%;
+    //     transform: skew(-10deg);
+    //     background-color: black;
+    //     border-right: 1px solid green;
+    //   }
+    // }
+    // &:nth-child(4) {
+    //   .preview {
+    //     border-left-color: black;
+    //   }
+    //   .preview::after {
+    //     content: "";
+    //     position: absolute;
+    //     display: block;
+    //     width: 17%;
+    //     height: 102%;
+    //     top: -1%;
+    //     left: -13%;
+    //     transform: skew(10deg);
+    //     background-color: black;
+    //     border-right: 1px solid green;
+    //   }
+    // }
+    &.toggledOn {
+      p {
+        top: 5%;
+        animation: changeFont 0.25s forwards;
+      }
+      .preview, .fa {
+        animation: flipIn 0.55s linear;
+        animation-delay: flipIn 0.75s;
+        display: initial;
+      }
+      width: 100%;
+      height: 150%;
+    }
+  }
 }
 
+@keyframes flipIn {
+  0% {
+    transform: rotateX(89deg);
+  }
+  50% {
+    transform: rotateX(45deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+@keyframes changeFont {
+  0% {
+    font-size: 18px;
+  }
+  100% {
+    font-size: 32px;
+  }
+}
+
+// *{
+//   border: 1px solid red;
+// }
