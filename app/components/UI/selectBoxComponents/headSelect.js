@@ -1,28 +1,35 @@
 import React from 'react';
-import Style from "./headSelect.scss";
-import gsap from "gsap";
+
 export default class HeadSelect extends React.Component{
 	constructor(props){
 		super(props);
 		
-		this.state = {open:true};
-		this.handleClick = this.handleClick.bind(this);
+		this.handleMouseLeave=this.handleMouseLeave.bind(this);
+		this.handleMouseEnter=this.handleMouseEnter.bind(this);
 	}
 	
-	handleClick(){
-		if (!this.state.open){
-			this.setState({open: true});
-			TweenMax.to(".headSelect", .5, {width: "100%"});
-		}
-		else if (this.state.open){
-			this.setState({open: false});
-			TweenMax.to(".headSelect", .5, {width: "20%"});
-		}
+	handleMouseEnter(){
+		this.props.handleMouseEnter(1);
+	}
+	
+	handleMouseLeave(){
+		this.props.handleMouseLeave(1);
 	}
 	
 	render(){
 		return (
-			<span className='headSelect' onClick={this.handleClick}>
+			<span className={"tab " + this.props.addTabClass1} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave} >
+				<p>Head</p>
+				<span className="preview">
+					<span className="portrait"></span>
+						<span className="description">
+						Kabuto helmet <br/>
+						Demoralize enemies <br/>
+						Behind it, third eye
+					</span>
+				</span>
+				<i className="fa fa-toggle-right fa-lg"></i>
+				<i className="fa fa-toggle-left fa-lg"></i>
 			</span>
 		);
 	}
