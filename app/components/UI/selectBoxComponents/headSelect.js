@@ -22,7 +22,7 @@ export default class HeadSelect extends React.Component{
 				<p>Head</p>
 				<span className="preview">
 					<span className="portrait"></span>
-						<span className="description">
+					<span className="description">
 						Kabuto helmet <br/>
 						Demoralize enemies <br/>
 						Behind it, third eye
