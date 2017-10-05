@@ -2,17 +2,8 @@ import React from 'react';
 import Style from './selectBoxStyle.scss';
 import HeadSelect from "./headSelect.js";
 import SamuraiHead from "./../../robotHeads/samurai/samuraiHead.js";
+import {headList, bodyList, armsList, legsList} from "./../../partsList.js";
 
-var headChoices = {
-	samurai: {
-		component: SamuraiHead,
-		description: (<span>
-			Kabuto helmet <br />
-			Demoralize enemies <br />
-			Behind it, third eye
-			</span>)
-	}
-}
 
 export default class SelectBox extends React.Component{
 	constructor(props){
@@ -23,34 +14,36 @@ export default class SelectBox extends React.Component{
 			addTabClass2: null,
 			addTabClass3: null,
 			addTabClass4: null,
-			currentHead: headChoices["samurai"]
+			previewHead: "samuraiHead"
 		}
 		
 		this.tabOn = this.tabOn.bind(this);
 		this.tabOff = this.tabOff.bind(this);
 		this.tabSwitch = this.tabSwitch.bind(this);
+		this.assembleHead = this.assembleHead.bind(this);
+		
 	}
 	
 	tabOn(tabNum){ ////Takes an integer indicating which tab to affect
-		var newKey = "addTabClass" + tabNum
-		var newState = {};
-		newState[newKey] = "toggledOn";
-		this.setState(newState);
+		this.setState({["addTabClass" + tabNum]: "toggledOn"});
 	}
 	
 	
-	tabOff(tabNum){////Takes an integer indicating which tab to affect
-		var newKey = "addTabClass" + tabNum
-		var newState = {};
-		newState[newKey] = null;
-		this.setState(newState);
+	tabOff(tabNum){
+		this.setState({["addTabClass" + tabNum]: null});
 	}
 	
 	tabSwitch(tabNum){
-		var newKey = "addTabClass" + tabNum
-		var newState = {};
-		newState[newKey] = this.state[newKey] ? null : "toggledOn";
-		this.setState(newState);
+		let newKey = "addTabClass" + tabNum;
+		this.setState(function(state, props){
+			return {
+				[newKey]: state[newKey] ? null : "toggledOn"
+			}
+		});
+	}
+	
+	assembleHead(){
+		this.props.changePart("currentHead", this.state.previewHead);
 	}
 	
 	render(){
@@ -60,10 +53,12 @@ export default class SelectBox extends React.Component{
 				<HeadSelect 
 					onMouseEnter={this.tabOn} 
 					onMouseLeave={this.tabOff} 
-					addTabClass1={this.state.addTabClass1} 
+					addClass={this.state.addTabClass1} 
 					onTouchStart={this.tabSwitch} 
+					onClickSelect={this.assembleHead}
 				>
-					{this.state.currentHead.description}
+					{headList[this.state.previewHead].display}
+					{headList[this.state.previewHead].description}
 				</HeadSelect>
 				
 				<span className="tab">
