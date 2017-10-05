@@ -44,7 +44,6 @@ export default class HeadSelect extends React.Component{
 					<i className="fa fa-toggle-right fa-lg"></i>
 					<i className="fa fa-toggle-left fa-lg"></i>
 				</span>
-				<button className="selectButton">SELECT</button>
 				<button className="selectButton" onClick={this.handleClickSelect}>SELECT</button>
 			</span>
 		);
