@@ -1,6 +1,8 @@
 
 .samuraiHead{
-	$baseSize: 10vw;
+	$baseSize: 7vmax;
+	
+	
 	top: $baseSize;
 	border: $baseSize/15 solid black;
 	border-right-color: red;
@@ -114,6 +116,25 @@
 		bottom: 10%;
 		background: darken(red, 10%);
 	}
+	
+	&.mini{
+		z-index: 1000;
+		margin: auto;
+		top: 0;  bottom: 0;
+		top: 10%;
+		left: calc(50% - 3.5vmax);
+		transform: scale(0.5);
+		filter: brightness(0.5);
+		.eye{
+			background: darkorange;
+			filter: brightness(0.5);
+			animation: none;
+		}
+		@media screen and (max-width: 900px){
+			transform: scale(.7);
+		}
+	}
+	
 	
 	@keyframes glowing{
 		0%{

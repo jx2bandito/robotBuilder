@@ -1,6 +1,8 @@
 import React from 'react';
-import Style from './selectBoxStyleCompiled.scss';
+import Style from './selectBoxStyle.scss';
 import HeadSelect from "./headSelect.js";
+import SamuraiHead from "./../../robotHeads/samurai/samuraiHead.js";
+import {headList, bodyList, armsList, legsList} from "./../../partsList.js";
 
 
 export default class SelectBox extends React.Component{
@@ -11,35 +13,56 @@ export default class SelectBox extends React.Component{
 			addTabClass1: null,
 			addTabClass2: null,
 			addTabClass3: null,
-			addTabClass4: null
+			addTabClass4: null,
+			previewHead: "samuraiHead"
 		}
 		
-		this.toggleOn = this.toggleOn.bind(this);
-		this.toggleOff = this.toggleOff.bind(this);
+		this.tabOn = this.tabOn.bind(this);
+		this.tabOff = this.tabOff.bind(this);
+		this.tabSwitch = this.tabSwitch.bind(this);
+		this.assembleHead = this.assembleHead.bind(this);
+		
 	}
 	
-	toggleOn(tabNum){ ////Takes an integer indicating which tab to affe
-		var newKey = "addTabClass" + tabNum
-		var newState = {};
-		newState[newKey] = "toggledOn";
-		this.setState(newState);
+	tabOn(tabNum){ ////Takes an integer indicating which tab to affect
+		this.setState({["addTabClass" + tabNum]: "toggledOn"});
 	}
 	
-	toggleOff(tabNum){////Takes an integer indicating which tab to affect
-		var newKey = "addTabClass" + tabNum
-		var newState = {};
-		newState[newKey] = null;
-		this.setState(newState);
+	
+	tabOff(tabNum){
+		this.setState({["addTabClass" + tabNum]: null});
+	}
+	
+	tabSwitch(tabNum){
+		let newKey = "addTabClass" + tabNum;
+		this.setState(function(state, props){
+			return {
+				[newKey]: state[newKey] ? null : "toggledOn"
+			}
+		});
+	}
+	
+	assembleHead(){
+		this.props.changePart("currentHead", this.state.previewHead);
 	}
 	
 	render(){
 		return (
 			<div className='selectBoxContainer'>
 				
-				<HeadSelect handleMouseEnter={this.toggleOn} handleMouseLeave={this.toggleOff} addTabClass1={this.state.addTabClass1} />
+				<HeadSelect 
+					onMouseEnter={this.tabOn} 
+					onMouseLeave={this.tabOff} 
+					addClass={this.state.addTabClass1} 
+					onTouchStart={this.tabSwitch} 
+					onClickSelect={this.assembleHead}
+				>
+					{headList[this.state.previewHead].display}
+					{headList[this.state.previewHead].description}
+				</HeadSelect>
 				
 				<span className="tab">
-					<p>Armor</p>
+					<p>BODY</p>
 					<span className="preview">
 						<span className="portrait"></span>
 						<span className="description">
@@ -48,12 +71,14 @@ export default class SelectBox extends React.Component{
 							Behind it, third eye
 						</span>
 					</span>
-					<i className="fa fa-toggle-right fa-lg"></i>
-					<i className="fa fa-toggle-left fa-lg"></i>
+					<span className="faColumn">
+						<i className="fa fa-toggle-right fa-lg"></i>
+						<i className="fa fa-toggle-left fa-lg"></i>
+					</span>
 				</span>
 				
 				<span className="tab">
-					<p>Arms</p>
+					<p>ARMS</p>
 					<span className="preview">
 						<span className="portrait"></span>
 						<span className="description">
@@ -62,12 +87,14 @@ export default class SelectBox extends React.Component{
 							Behind it, third eye
 						</span>
 					</span>
-					<i className="fa fa-toggle-right fa-lg"></i>
-					<i className="fa fa-toggle-left fa-lg"></i>
+					<span className="faColumn">
+						<i className="fa fa-toggle-right fa-lg"></i>
+						<i className="fa fa-toggle-left fa-lg"></i>
+					</span>
 				</span>
 				
 				<span className="tab">
-					<p>Legs</p>
+					<p>LEGS</p>
 					<span className="preview">
 						<span className="portrait"></span>
 						<span className="description">
@@ -76,8 +103,10 @@ export default class SelectBox extends React.Component{
 							Behind it, third eye
 						</span>
 					</span>
-					<i className="fa fa-toggle-right fa-lg"></i>
-					<i className="fa fa-toggle-left fa-lg"></i>
+					<span className="faColumn">
+						<i className="fa fa-toggle-right fa-lg"></i>
+						<i className="fa fa-toggle-left fa-lg"></i>
+					</span>
 				</span>
 				
 			</div>
