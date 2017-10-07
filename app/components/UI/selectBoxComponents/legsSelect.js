@@ -13,39 +13,38 @@ export default class HeadSelect extends React.Component{
 	}
 	
 	handleMouseEnter(e){
-		this.props.onMouseEnter(1);
+		this.props.onMouseEnter(4);
 	}
 	
 	handleMouseLeave(e){
-		this.props.onMouseLeave(1);
+		this.props.onMouseLeave(4);
 	}
 	
 	handleTouchStart(e){
 		if(e.target.className == "selectButton"){
 			return false;
 		}
-		
-		this.props.onMouseEnter(1);
+		this.props.onMouseEnter(4);
 	}
 	
 	handleClickSelect(e){
 		this.props.onClickSelect()
-		this.props.onMouseLeave(1);
+		this.props.onMouseLeave(4);
 	}
 	
 	handleClickLeft(e){
-		this.props.onClickLeft("head");
+		this.props.onClickLeft("legs");
 	}
 	
 	handleClickRight(e){
-		this.props.onClickRight("head");
+		this.props.onClickRight("legs");
 	}
 	
 	render(){
 		var Portrait = this.props.children[0];
 		return (
 			<span className={"tab " + this.props.addClass} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave} onTouchStart={this.handleTouchStart} >
-				<p>HEAD</p>
+				<p>LEGS</p>
 				<span className="preview">
 					<span className="portrait">
 						<Portrait addClass="mini"/>
@@ -58,7 +57,7 @@ export default class HeadSelect extends React.Component{
 					<i onClick={this.handleClickRight} className="fa fa-toggle-right fa-lg"></i>
 					<i onClick={this.handleClickLeft} className="fa fa-toggle-left fa-lg"></i>
 				</span>
-				<button className="selectButton" onTouchStart={this.handleClickSelect} onClick={this.handleClickSelect}>SELECT</button>
+				<button className="selectButton" onClick={this.handleClickSelect}>SELECT</button>
 			</span>
 		);
 	}
