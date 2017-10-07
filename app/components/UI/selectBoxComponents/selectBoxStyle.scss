@@ -84,6 +84,7 @@
       border: 1px solid darkgreen;
       box-sizing: border-box;
       display: none;
+	  overflow: hidden;
       .portrait{
         width: 35%;
         height: 100%;
@@ -130,6 +131,7 @@
 	  font-weight: bold;
 	  right: 16px;
 	  bottom: 5px;
+	  z-index: 10;
 	  &:active{
 	    filter: brightness(1.25);
 	  }
