@@ -1576,7 +1576,7 @@ var headList = exports.headList = {
 		description: _react2.default.createElement(
 			'span',
 			null,
-			'ERROR! Element shortage: Robotium'
+			'ERROR! Element shortage: Robotitanium'
 		)
 	}
 };
@@ -1609,7 +1609,7 @@ var legsList = exports.legsList = {
 		description: _react2.default.createElement(
 			'span',
 			null,
-			'ERROR! Not yet authorize to build this part'
+			'ERROR! Not yet authorized to build this part'
 		)
 	}
 };

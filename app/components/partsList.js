@@ -14,7 +14,7 @@ export const headList = {
 	},
 	placeholder: {
 		display: Placeholder,
-		description: (<span>ERROR! Element shortage: Robotium</span>)
+		description: (<span>ERROR! Element shortage: Robotitanium</span>)
 	}
 }
 
@@ -35,6 +35,6 @@ export const armsList = {
 export const legsList = {
 	placeholder: {
 		display: Placeholder,
-		description: (<span>ERROR! Not yet authorize to build this part</span>)
+		description: (<span>ERROR! Not yet authorized to build this part</span>)
 	}
 }
