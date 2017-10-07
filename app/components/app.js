@@ -8,10 +8,10 @@ export default class App extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
-			currentHead: "none",
-			currentBody: "none",
-			currentArms: "none",
-			currentLegs: "none"
+			currentHead: "placeholder",
+			currentBody: "placeholder",
+			currentArms: "placeholder",
+			currentLegs: "placeholder"
 		};
 		
 		this.changePart=this.changePart.bind(this);
@@ -36,11 +36,10 @@ export default class App extends React.Component{
 		return (
 			<div>
 				<SelectBox changePart={this.changePart}/>
-				{Head ? <Head addClass="jumbo" /> : false}
-				{Body ? <Body /> : false}
-				{Arms ? <Arms /> : false}
-				{Legs ? <Legs /> : false}
-				{/*Render parts if they exist*/}
+				<Head addClass="jumbo" />
+				<Body addClass="jumbo" />
+				<Arms addClass="jumbo" />
+				<Legs addClass="jumbo" />
 			</div>
 		)
 		
