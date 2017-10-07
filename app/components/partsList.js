@@ -1,5 +1,7 @@
 import React from 'react';
 import SamuraiHead from './robotHeads/samurai/samuraiHead.js';
+import Placeholder from "./placeholder.js";
+
 
 export const headList = {
 	samuraiHead: {
@@ -10,25 +12,29 @@ export const headList = {
 			Behind it, third eye
 			</span>)
 	},
-	none: {
-		display: false
+	placeholder: {
+		display: Placeholder,
+		description: (<span>ERROR! Element shortage: Robotium</span>)
 	}
 }
 
 export const bodyList = {
-	none: {
-		display: false
+	placeholder: {
+		display: Placeholder,
+		description: (<span>ERROR! Blueprint has been stolen by cyborg ninjas</span>)
 	}
 }
 
 export const armsList = {
-	none: {
-		display: false
+	placeholder: {
+		display: Placeholder,
+		description: (<span>ERROR! Insufficient funds</span>)
 	}
 }
 
 export const legsList = {
-	none: {
-		display: false
+	placeholder: {
+		display: Placeholder,
+		description: (<span>ERROR! Not yet authorize to build this part</span>)
 	}
 }
