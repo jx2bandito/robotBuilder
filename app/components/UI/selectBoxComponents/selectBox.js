@@ -1,31 +1,49 @@
 import React from 'react';
 import Style from './selectBoxStyle.scss';
 import HeadSelect from "./headSelect.js";
+import BodySelect from "./bodySelect.js";
+import ArmsSelect from "./armsSelect.js";
+import LegsSelect from "./legsSelect.js";
+
 import SamuraiHead from "./../../robotHeads/samurai/samuraiHead.js";
 import {headList, bodyList, armsList, legsList} from "./../../partsList.js";
 
+const partsArray = {
+	headArray: Object.keys(headList),
+	bodyArray: Object.keys(bodyList),
+	armsArray: Object.keys(armsList),
+	legsArray: Object.keys(legsList)
+}
 
 export default class SelectBox extends React.Component{
 	constructor(props){
 		super(props);
-		
 		this.state = {
 			addTabClass1: null,
 			addTabClass2: null,
 			addTabClass3: null,
 			addTabClass4: null,
-			previewHead: "samuraiHead"
+			previewHead: "samuraiHead",
+			previewBody: "placeholder",
+			previewArms: "placeholder",
+			previewLegs: "placeholder"
 		}
 		
-		this.tabOn = this.tabOn.bind(this);
-		this.tabOff = this.tabOff.bind(this);
-		this.tabSwitch = this.tabSwitch.bind(this);
-		this.assembleHead = this.assembleHead.bind(this);
-		
+		this.tabOn=this.tabOn.bind(this);
+		this.tabOff=this.tabOff.bind(this);
+		this.tabSwitch=this.tabSwitch.bind(this);
+		this.assembleHead=this.assembleHead.bind(this);
+		this.rotatePartLeft=this.rotatePartLeft.bind(this);
+		this.rotatePartRight=this.rotatePartRight.bind(this);
 	}
 	
 	tabOn(tabNum){ ////Takes an integer indicating which tab to affect
-		this.setState({["addTabClass" + tabNum]: "toggledOn"});
+		this.setState({			
+			addTabClass1: null,
+			addTabClass2: null,
+			addTabClass3: null,
+			addTabClass4: null,
+			["addTabClass" + tabNum]: "toggledOn"});
 	}
 	
 	
@@ -42,11 +60,40 @@ export default class SelectBox extends React.Component{
 		});
 	}
 	
+	rotatePartLeft(partType){
+		this.setState(function(state, props){
+			let newIndex = partsArray[partType + "Array"].indexOf(state.previewHead) - 1;
+			newIndex = (newIndex <= -1) ? partsArray[partType + "Array"].length - 1 : newIndex;
+			let upperType = partType.split("");
+			upperType[0] = upperType[0].toUpperCase();
+			upperType = upperType.join("");
+			return {
+				["preview" + upperType]: partsArray[partType + "Array"][newIndex]
+			}
+		});
+	}
+	
+	rotatePartRight(partType){
+		this.setState(function(state, props){
+			let newIndex = partsArray[partType + "Array"].indexOf(state.previewHead) + 1;
+			newIndex = (newIndex >= partsArray[partType + "Array"].length) ? 0 : newIndex;
+			let upperType = partType.split("");
+			upperType[0] = upperType[0].toUpperCase();
+			upperType = upperType.join("");
+			return {
+				["preview" + upperType]: partsArray[partType + "Array"][newIndex]
+			}
+		});
+	}
+	
 	assembleHead(){
 		this.props.changePart("currentHead", this.state.previewHead);
 	}
 	
 	render(){
+	
+		
+		
 		return (
 			<div className='selectBoxContainer'>
 				
@@ -55,59 +102,52 @@ export default class SelectBox extends React.Component{
 					onMouseLeave={this.tabOff} 
 					addClass={this.state.addTabClass1} 
 					onTouchStart={this.tabSwitch} 
-					onClickSelect={this.assembleHead}
+					onClickSelect={this.assembleHead} 
+					onClickLeft={this.rotatePartLeft} 
+					onClickRight={this.rotatePartRight}
 				>
 					{headList[this.state.previewHead].display}
 					{headList[this.state.previewHead].description}
 				</HeadSelect>
 				
-				<span className="tab">
-					<p>BODY</p>
-					<span className="preview">
-						<span className="portrait"></span>
-						<span className="description">
-							Kabuto helmet <br/>
-							Demoralize enemies <br/>
-							Behind it, third eye
-						</span>
-					</span>
-					<span className="faColumn">
-						<i className="fa fa-toggle-right fa-lg"></i>
-						<i className="fa fa-toggle-left fa-lg"></i>
-					</span>
-				</span>
+				<BodySelect 
+					onMouseEnter={this.tabOn} 
+					onMouseLeave={this.tabOff} 
+					addClass={this.state.addTabClass2} 
+					onTouchStart={this.tabSwitch} 
+					onClickSelect={this.assembleHead}
+					onClickLeft={this.rotatePartLeft} 
+					onClickRight={this.rotatePartRight}
+				>
+					{bodyList[this.state.previewBody].display}
+					{bodyList[this.state.previewBody].description}
+				</BodySelect>
 				
-				<span className="tab">
-					<p>ARMS</p>
-					<span className="preview">
-						<span className="portrait"></span>
-						<span className="description">
-							Kabuto helmet <br/>
-							Demoralize enemies <br/>
-							Behind it, third eye
-						</span>
-					</span>
-					<span className="faColumn">
-						<i className="fa fa-toggle-right fa-lg"></i>
-						<i className="fa fa-toggle-left fa-lg"></i>
-					</span>
-				</span>
+				<ArmsSelect 
+					onMouseEnter={this.tabOn} 
+					onMouseLeave={this.tabOff} 
+					addClass={this.state.addTabClass3} 
+					onTouchStart={this.tabSwitch} 
+					onClickSelect={this.assembleHead}
+					onClickLeft={this.rotatePartLeft} 
+					onClickRight={this.rotatePartRight}
+				>
+					{armsList[this.state.previewArms].display}
+					{armsList[this.state.previewArms].description}
+				</ArmsSelect>
 				
-				<span className="tab">
-					<p>LEGS</p>
-					<span className="preview">
-						<span className="portrait"></span>
-						<span className="description">
-							Kabuto helmet <br/>
-							Demoralize enemies <br/>
-							Behind it, third eye
-						</span>
-					</span>
-					<span className="faColumn">
-						<i className="fa fa-toggle-right fa-lg"></i>
-						<i className="fa fa-toggle-left fa-lg"></i>
-					</span>
-				</span>
+				<LegsSelect 
+					onMouseEnter={this.tabOn} 
+					onMouseLeave={this.tabOff} 
+					addClass={this.state.addTabClass4} 
+					onTouchStart={this.tabSwitch} 
+					onClickSelect={this.assembleHead}
+					onClickLeft={this.rotatePartLeft} 
+					onClickRight={this.rotatePartRight}
+				>
+					{legsList[this.state.previewLegs].display}
+					{legsList[this.state.previewLegs].description}
+				</LegsSelect>
 				
 			</div>
 		);
