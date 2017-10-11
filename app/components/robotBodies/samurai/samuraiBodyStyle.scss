@@ -1,0 +1,213 @@
+.bodyAnimWrap {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+    top: 13.5vmax;
+  &.mini{
+		z-index: 1000;
+		margin: auto;
+		bottom: 0;
+		top: -40%;
+		left: calc(50% - 2vmaxvmax);
+		transform: scale(0.25);
+		filter: brightness(0.5);
+		@media screen and (max-width: 900px){
+			top: 0%;
+		}
+  }
+}
+
+.samuraiBodyWrapper {
+  * {
+    box-sizing: border-box;
+  }
+
+  $baseSize: 13vmax;
+  width: $baseSize;
+  height: $baseSize * 1;
+  left: calc(50% - #{$baseSize} / 2);
+  position: absolute;
+  z-index: 400;
+  .samuraiBody {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #3f3f3f;
+    -webkit-clip-path: polygon(0 0, 100% 0, 93% 100%, 7% 100%);
+    clip-path: polygon(0 0, 100% 0, 93% 100%, 7% 100%);
+    border-radius: 5px 5px 2px 2px;
+    .coreCover {
+      width: $baseSize / 4.8;
+      height: $baseSize / 1.7;
+      background: gray;
+      filter: brightness(0.9);
+      position: absolute;
+      top: calc(50% - #{$baseSize} / 3);
+      z-index: 200;
+      &.coreCoverLeft {
+        left: calc(50% - #{$baseSize} / 5.8);
+        border-radius: $baseSize/30 0 0 $baseSize/30;
+      }
+      &.coreCoverRight {
+        right: calc(50% - #{$baseSize} / 5.8);
+        border-radius: 0 $baseSize/30 $baseSize/30 0;
+      }
+    }
+    .core {
+      $color1: red;
+      $color2: yellow;
+      $color3: darkorange;
+      width: $baseSize / 3;
+      height: $baseSize / 2;
+      position: absolute;
+      left: calc(50% - #{$baseSize} / 6);
+      top: calc(50% - #{$baseSize} / 3.5);
+      z-index: 0;
+      border-radius: $baseSize/30;
+      overflow: hidden;
+      &.animated {
+        background: linear-gradient(90deg, $color1, $color2, $color3);
+        animation: shaking 0.15s linear infinite;
+        .coreMiddle {
+          animation: changeOpacity 0.15s linear infinite;
+          animation-delay: 0.07s;
+          background: linear-gradient(90deg, $color2, $color3, $color1);
+        }
+        .coreEnd {
+          animation: changeOpacity 0.15s linear infinite;
+          animation-delay: 0.15s;
+        }
+      }
+      .coreMiddle {
+        border-radius: $baseSize/30;
+        width: $baseSize / 3;
+        height: $baseSize / 2;
+        content: "";
+        background: darkorange;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 5;
+      }
+      .coreEnd {
+        border-radius: $baseSize/30;
+        width: $baseSize / 3;
+        height: $baseSize / 2;
+        content: "";
+        background: linear-gradient(90deg, $color3, $color1, $color2);
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 4;
+      }
+    }
+  }
+  
+  $plateBG: darken(red, 5%);
+  .plate1 {
+    background-color: $plateBG;
+    width: 120%;
+    height: 50%;
+    position: absolute;
+    left: -10%;
+    top: 0;
+    margin: auto;
+    z-index: 10;
+    border-radius: 0 0 5% 5%;
+    .pad {
+      width: 40%;
+      height: 30%;
+      background-color: darkred;
+      position: absolute;
+      top: -20%;
+    }
+    .padLeft {
+      left: -30%;
+      transform: skew(5deg);
+      overflow: hidden;
+    }
+    .padRight {
+      right: -30%;
+      transform: skew(-5deg);
+    }
+    .penta {
+      width: 50%;
+      height: 80%;
+      overflow: hidden;
+      background: black;
+      border: 0.2vmax solid yellow;
+      -webkit-clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+      clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+      position: absolute;
+      left: 25%;
+      bottom: 0;
+      .shi {
+        border-radius: 50%;
+        width: 80%;
+        height: 80%;
+        left: 13%;
+        top: 15%;
+        bottom: 0%;
+        position: absolute;
+      }
+    }
+  }
+  .plate2 {
+    background-color: $plateBG;
+    width: 110%;
+    height: 60%;
+    position: absolute;
+    left: -5%;
+    top: 45%;
+    z-index: 9;
+    margin: auto;
+    -webkit-clip-path: polygon(0 0, 100% 0, 98% 100%, 2% 100%);
+    clip-path: polygon(0 0, 100% 0, 98% 100%, 2% 100%);
+    .belt {
+      left: 0;
+      width: 100%;
+      height: 30%;
+      position: absolute;
+      background: black;
+    }
+  }
+  .backPlate {
+    filter: brightness(0.7);
+    z-index: -1;
+  }
+  .frontPlate {
+    transform: scale(1.01);
+  }
+}
+
+@keyframes changeOpacity {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes shaking {
+  0% {
+    transform: translateX(0.3px) rotateY(1deg);
+  }
+  25% {
+    transform: translateX(-0.3px) rotateY(-1deg);
+  }
+  75% {
+    transform: translateX(-0.3px) rotateY(-1deg);
+  }
+  100% {
+    transform: translateX(0.3px) rotateY(1deg);
+  }
+}
