@@ -8,6 +8,7 @@
  multiple parts from different families can be combined to create unique robots. At the moment, the architecture for previewing and selecting parts 
  is already completed. The parts themselves however are currently in progress. 
  
+ Project page: https://jx2bandito.github.io/robotBuilder
   
 ### User stories: <br />
 * User can preview and rotate through available robot parts (currently limited to a samurai head part, a samurai body part, and placeholders)
