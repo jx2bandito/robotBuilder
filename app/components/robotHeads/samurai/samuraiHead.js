@@ -1,5 +1,5 @@
 import React from 'react';
-import Style from './samuraiheadStyle.scss';
+import Style from './samuraiHeadStyle.scss';
 import gsap from 'gsap';
 
 export default class samuraiHead extends React.Component{
@@ -14,8 +14,8 @@ export default class samuraiHead extends React.Component{
 		}
 		
 		
-		var samuraiTL = new TimelineMax();
-		samuraiTL
+		var samuraiHeadTL = new TimelineMax();
+		samuraiHeadTL
 		.from(".jumbo.samuraiHead", 1, {
 			y: "1000%",
 		})
@@ -95,7 +95,7 @@ export default class samuraiHead extends React.Component{
 	
 	render(){
 		return (
-			<div>
+			<div className={"samuraiHeadWrap " + this.props.addClass}>
 				<div className={"samuraiHead " + this.props.addClass} >
 					<span className={"samuraiV " + this.props.addClass}></span>
 					<span className={"leftEye eye " + this.props.addClass}></span>
