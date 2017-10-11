@@ -20,10 +20,6 @@ export const headList = {
 }
 
 export const bodyList = {
-	placeholder: {
-		display: Placeholder,
-		description: (<span>ERROR! Blueprint has been stolen by cyborg ninjas</span>)
-	},
 	samuraiBody: {
 		display: SamuraiBody,
 		description: (<span>
@@ -31,6 +27,10 @@ export const bodyList = {
 			Roar, flames of the bushido<br />
 			Take no prisoner
 			</span>)
+	},
+	placeholder: {
+		display: Placeholder,
+		description: (<span>ERROR! Blueprint has been stolen by cyborg ninjas</span>)
 	}
 }
 
