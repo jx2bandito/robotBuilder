@@ -1510,7 +1510,7 @@ var samuraiHead = function (_React$Component) {
 		value: function render() {
 			return _react2.default.createElement(
 				'div',
-				null,
+				{ className: "samuraiHeadWrap " + this.props.addClass },
 				_react2.default.createElement(
 					'div',
 					{ className: "samuraiHead " + this.props.addClass },
@@ -29950,7 +29950,7 @@ var SelectBox = function (_React$Component) {
 			addTabClass3: null,
 			addTabClass4: null,
 			previewHead: "samuraiHead",
-			previewBody: "placeholder",
+			previewBody: "samuraiBody",
 			previewArms: "placeholder",
 			previewLegs: "placeholder"
 		};
@@ -29959,6 +29959,7 @@ var SelectBox = function (_React$Component) {
 		_this.tabOff = _this.tabOff.bind(_this);
 		_this.tabSwitch = _this.tabSwitch.bind(_this);
 		_this.assembleHead = _this.assembleHead.bind(_this);
+		_this.assembleBody = _this.assembleBody.bind(_this);
 		_this.rotatePartLeft = _this.rotatePartLeft.bind(_this);
 		_this.rotatePartRight = _this.rotatePartRight.bind(_this);
 		return _this;
@@ -30018,6 +30019,11 @@ var SelectBox = function (_React$Component) {
 			this.props.changePart("currentHead", this.state.previewHead);
 		}
 	}, {
+		key: 'assembleBody',
+		value: function assembleBody() {
+			this.props.changePart("currentBody", this.state.previewBody);
+		}
+	}, {
 		key: 'render',
 		value: function render() {
 
@@ -30045,7 +30051,7 @@ var SelectBox = function (_React$Component) {
 						onMouseLeave: this.tabOff,
 						addClass: this.state.addTabClass2,
 						onTouchStart: this.tabSwitch,
-						onClickSelect: this.assembleHead,
+						onClickSelect: this.assembleBody,
 						onClickLeft: this.rotatePartLeft,
 						onClickRight: this.rotatePartRight
 					},
@@ -30130,7 +30136,7 @@ exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=VT3
 exports.push([module.i, "@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css);", ""]);
 
 // module
-exports.push([module.i, ".selectBoxContainer {\n  font-family: vt323;\n  display: flex;\n  width: 30vw;\n  min-width: 350px;\n  position: absolute;\n  flex-direction: column;\n  left: 0;\n  top: 2vw;\n  height: 400px; }\n  .selectBoxContainer .tab {\n    -webkit-backface-visibility: hidden;\n    margin-bottom: 5px;\n    overflow: hidden;\n    box-sizing: content-box;\n    left: -8%;\n    border: 8px outset #007f00;\n    border-top-width: 4px;\n    border-left-width: 4px;\n    border-left-color: black;\n    width: 25%;\n    height: 25%;\n    background-color: black;\n    position: relative;\n    transition: width 0.25s ease-in-out, height 0.25s ease-in-out;\n    position: relative;\n    padding: 0;\n    color: lightgreen !important;\n    box-shadow: 1px 1px 2px 2px #1f5f1f; }\n    .selectBoxContainer .tab .faColumn {\n      position: absolute;\n      box-sizing: border-box;\n      bottom: 0;\n      left: 8%;\n      height: 15%;\n      width: 92%;\n      padding: calc(5px + .5vw);\n      display: inline-block; }\n      .selectBoxContainer .tab .faColumn .fa-toggle-right {\n        display: none;\n        top: 10px;\n        left: calc(50% + 5px);\n        position: absolute; }\n        .selectBoxContainer .tab .faColumn .fa-toggle-right:active {\n          filter: brightness(1.25); }\n      .selectBoxContainer .tab .faColumn .fa-toggle-left {\n        display: none;\n        top: 10px;\n        right: calc(50% + 5px);\n        position: absolute; }\n        .selectBoxContainer .tab .faColumn .fa-toggle-left:active {\n          filter: brightness(1.25); }\n    .selectBoxContainer .tab p {\n      margin: auto;\n      box-sizing: content-box;\n      font-size: 18px;\n      position: absolute;\n      width: 100%;\n      top: 37.5%;\n      bottom: 0;\n      left: 25%;\n      text-align: center;\n      transition: opacity 0.5s, top 0.5s; }\n    .selectBoxContainer .tab .preview {\n      -webkit-backface-visibility: hidden;\n      width: 75%;\n      height: 59%;\n      top: 25%;\n      left: 10%;\n      position: absolute;\n      text-align: center;\n      background: transparent;\n      border: 1px solid darkgreen;\n      box-sizing: border-box;\n      display: none;\n      overflow: hidden; }\n      .selectBoxContainer .tab .preview .portrait {\n        width: 35%;\n        height: 100%;\n        border-right: 1px solid green;\n        box-sizing: border-box;\n        background-color: #121;\n        position: absolute;\n        left: 0;\n        top: 0; }\n      .selectBoxContainer .tab .preview .description {\n        position: absolute;\n        width: 65%;\n        left: 35%;\n        height: 100%;\n        padding-top: 20px;\n        box-sizing: border-box;\n        display: block;\n        font-size: calc(10px + .5vw); }\n    .selectBoxContainer .tab.toggledOn {\n      width: 100%;\n      height: 150%; }\n      .selectBoxContainer .tab.toggledOn p {\n        top: 5%;\n        animation: changeFont 0.25s forwards; }\n      .selectBoxContainer .tab.toggledOn .preview, .selectBoxContainer .tab.toggledOn .fa, .selectBoxContainer .tab.toggledOn .selectButton {\n        animation: flipIn 0.55s linear;\n        animation-delay: flipIn 0.75s;\n        display: inline-block; }\n    .selectBoxContainer .tab .selectButton {\n      position: absolute;\n      display: none;\n      font-size: calc(12px + .5vw);\n      border: 1px solid green;\n      outline: none;\n      background: inherit;\n      color: inherit;\n      font-family: inherit;\n      font-weight: bold;\n      right: 16px;\n      bottom: 5px;\n      z-index: 10; }\n      .selectBoxContainer .tab .selectButton:active {\n        filter: brightness(1.25); }\n\n@keyframes flipIn {\n  0% {\n    transform: rotateX(89deg); }\n  50% {\n    transform: rotateX(45deg); }\n  100% {\n    transform: rotateX(0deg); } }\n\n@keyframes changeFont {\n  0% {\n    font-size: 18px; }\n  100% {\n    font-size: 32px; } }\n", ""]);
+exports.push([module.i, ".selectBoxContainer {\n  font-family: vt323;\n  display: flex;\n  width: 30vw;\n  min-width: 350px;\n  position: absolute;\n  flex-direction: column;\n  left: 0;\n  top: 2vw;\n  height: 400px;\n  z-index: 600; }\n  .selectBoxContainer .tab {\n    -webkit-backface-visibility: hidden;\n    margin-bottom: 5px;\n    overflow: hidden;\n    box-sizing: content-box;\n    left: -8%;\n    border: 8px outset #007f00;\n    border-top-width: 4px;\n    border-left-width: 4px;\n    border-left-color: black;\n    width: 25%;\n    height: 25%;\n    background-color: black;\n    position: relative;\n    transition: width 0.25s ease-in-out, height 0.25s ease-in-out;\n    position: relative;\n    padding: 0;\n    color: lightgreen !important;\n    box-shadow: 1px 1px 2px 2px #1f5f1f; }\n    .selectBoxContainer .tab .faColumn {\n      position: absolute;\n      box-sizing: border-box;\n      bottom: 0;\n      left: 8%;\n      height: 15%;\n      width: 92%;\n      padding: calc(5px + .5vw);\n      display: inline-block; }\n      .selectBoxContainer .tab .faColumn .fa-toggle-right {\n        display: none;\n        top: 10px;\n        left: calc(50% + 5px);\n        position: absolute; }\n        .selectBoxContainer .tab .faColumn .fa-toggle-right:active {\n          filter: brightness(1.25); }\n      .selectBoxContainer .tab .faColumn .fa-toggle-left {\n        display: none;\n        top: 10px;\n        right: calc(50% + 5px);\n        position: absolute; }\n        .selectBoxContainer .tab .faColumn .fa-toggle-left:active {\n          filter: brightness(1.25); }\n    .selectBoxContainer .tab p {\n      margin: auto;\n      box-sizing: content-box;\n      font-size: 18px;\n      position: absolute;\n      width: 100%;\n      top: 37.5%;\n      bottom: 0;\n      left: 25%;\n      text-align: center;\n      transition: opacity 0.5s, top 0.5s; }\n    .selectBoxContainer .tab .preview {\n      -webkit-backface-visibility: hidden;\n      width: 75%;\n      height: 59%;\n      top: 25%;\n      left: 10%;\n      position: absolute;\n      text-align: center;\n      background: transparent;\n      border: 1px solid darkgreen;\n      box-sizing: border-box;\n      display: none;\n      overflow: hidden; }\n      .selectBoxContainer .tab .preview .portrait {\n        width: 35%;\n        height: 100%;\n        border-right: 1px solid green;\n        box-sizing: border-box;\n        background-color: #121;\n        position: absolute;\n        left: 0;\n        top: 0; }\n      .selectBoxContainer .tab .preview .description {\n        position: absolute;\n        width: 65%;\n        left: 35%;\n        height: 100%;\n        padding-top: 20px;\n        box-sizing: border-box;\n        display: block;\n        font-size: calc(10px + .5vw); }\n    .selectBoxContainer .tab.toggledOn {\n      width: 100%;\n      height: 150%; }\n      .selectBoxContainer .tab.toggledOn p {\n        top: 5%;\n        animation: changeFont 0.25s forwards; }\n      .selectBoxContainer .tab.toggledOn .preview, .selectBoxContainer .tab.toggledOn .fa, .selectBoxContainer .tab.toggledOn .selectButton {\n        animation: flipIn 0.55s linear;\n        animation-delay: flipIn 0.75s;\n        display: inline-block; }\n    .selectBoxContainer .tab .selectButton {\n      position: absolute;\n      display: none;\n      font-size: calc(12px + .5vw);\n      border: 1px solid green;\n      outline: none;\n      background: inherit;\n      color: inherit;\n      font-family: inherit;\n      font-weight: bold;\n      right: 16px;\n      bottom: 5px;\n      z-index: 10; }\n      .selectBoxContainer .tab .selectButton:active {\n        filter: brightness(1.25); }\n\n@keyframes flipIn {\n  0% {\n    transform: rotateX(89deg); }\n  50% {\n    transform: rotateX(45deg); }\n  100% {\n    transform: rotateX(0deg); } }\n\n@keyframes changeFont {\n  0% {\n    font-size: 18px; }\n  100% {\n    font-size: 32px; } }\n", ""]);
 
 // exports
 
@@ -30759,7 +30765,7 @@ exports = module.exports = __webpack_require__(5)(undefined);
 
 
 // module
-exports.push([module.i, ".samuraiHead {\n  top: 7vmax;\n  border: 0.46667vmax solid black;\n  border-right-color: red;\n  border-left-color: red;\n  position: absolute;\n  background: #8f8f8f;\n  width: 7vmax;\n  border-radius: 1.75vmax 1.75vmax 4.66667vmax 4.66667vmax;\n  height: 7vmax;\n  box-sizing: border-box;\n  left: calc(50% - 7vmax/2);\n  text-align: center;\n  animation: growing 5s infinite;\n  z-index: -5; }\n  .samuraiHead .samuraiV {\n    position: absolute;\n    display: inline-block;\n    top: -2.91667vmax;\n    left: calc(50% - 7vmax/2.4);\n    width: 5.83333vmax;\n    height: 7vmax;\n    border: 1.4vmax solid gold;\n    box-sizing: border-box;\n    background: black;\n    background-size: cover;\n    -webkit-clip-path: polygon(50% 54%, 100% 0, 50% 38%, 0 0);\n    clip-path: polygon(50% 54%, 100% 0, 50% 38%, 0 0); }\n  .samuraiHead .eye {\n    width: 1.75vmax;\n    position: absolute;\n    display: inline-block;\n    height: 1.4vmax;\n    top: 1.75vmax;\n    background: darkorange;\n    border-bottom-right-radius: 50%;\n    border-bottom-left-radius: 50%;\n    background: #c0392b;\n    animation: glowing 5s infinite; }\n  .samuraiHead .leftEye {\n    left: 0.77778vmax; }\n  .samuraiHead .rightEye {\n    right: 0.77778vmax; }\n  .samuraiHead .mouth {\n    position: absolute;\n    display: block;\n    left: calc(50% - calc(7vmax - 7vmax/8)/2);\n    bottom: 0;\n    width: calc(7vmax - 7vmax/8);\n    height: 2.8vmax;\n    background: #7f7f7f;\n    border-bottom-left-radius: 100%;\n    border-bottom-right-radius: 100%;\n    transform: scale(0.98); }\n  .samuraiHead .armorPiece {\n    background: transparent;\n    display: block;\n    position: absolute;\n    top: -20%;\n    border: solid red;\n    border-width: 3.5vmax 1.75vmax;\n    border-top-color: transparent;\n    overflow: hidden;\n    z-index: -3; }\n  .samuraiHead .leftArmor {\n    left: -55%;\n    border-left-color: transparent; }\n  .samuraiHead .rightArmor {\n    right: -55%;\n    border-right-color: transparent; }\n  .samuraiHead .helmet {\n    z-index: -1;\n    height: 3.5vmax;\n    width: calc(7vmax - 7vmax/8);\n    position: absolute;\n    top: -39%;\n    border-right-color: transparent;\n    border-left-color: transparent;\n    left: calc(50% - calc(7vmax - 7vmax/8)/2);\n    border-radius: 50% 50% 0% 0%;\n    display: block;\n    background-color: red;\n    border: 0.23333vmax solid #998100;\n    border-right-color: transparent;\n    border-left-color: transparent;\n    box-sizing: border-box; }\n  .samuraiHead .neckArmor {\n    z-index: -15;\n    width: 7vmax;\n    height: 1.75vmax;\n    position: absolute;\n    left: calc(50% - calc(7vmax - 7vmax/8)/2);\n    bottom: 10%;\n    background: #cc0000; }\n  .samuraiHead.mini {\n    z-index: 1000;\n    margin: auto;\n    top: 0;\n    bottom: 0;\n    top: 10%;\n    left: calc(50% - 3.5vmax);\n    transform: scale(0.5);\n    filter: brightness(0.5); }\n    .samuraiHead.mini .eye {\n      background: darkorange;\n      filter: brightness(0.5);\n      animation: none; }\n    @media screen and (max-width: 900px) {\n      .samuraiHead.mini {\n        transform: scale(0.7); } }\n\n@keyframes glowing {\n  0% {\n    filter: brightness(1.5); }\n  50% {\n    filter: brightness(1); }\n  100% {\n    filter: brightness(1.5); } }\n", ""]);
+exports.push([module.i, ".samuraiHeadWrap {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  z-index: 399; }\n\n.samuraiHead {\n  top: 7vmax;\n  border: 0.46667vmax solid black;\n  border-right-color: red;\n  border-left-color: red;\n  position: absolute;\n  background: #8f8f8f;\n  width: 7vmax;\n  border-radius: 1.75vmax 1.75vmax 4.66667vmax 4.66667vmax;\n  height: 7vmax;\n  box-sizing: border-box;\n  left: calc(50% - 7vmax/2);\n  text-align: center;\n  animation: growing 5s infinite;\n  z-index: -5; }\n  .samuraiHead .samuraiV {\n    position: absolute;\n    display: inline-block;\n    top: -2.91667vmax;\n    left: calc(50% - 7vmax/2.4);\n    width: 5.83333vmax;\n    height: 7vmax;\n    border: 1.4vmax solid gold;\n    box-sizing: border-box;\n    background: black;\n    background-size: cover;\n    -webkit-clip-path: polygon(50% 54%, 100% 0, 50% 38%, 0 0);\n    clip-path: polygon(50% 54%, 100% 0, 50% 38%, 0 0); }\n  .samuraiHead .eye {\n    width: 1.75vmax;\n    position: absolute;\n    display: inline-block;\n    height: 1.4vmax;\n    top: 1.75vmax;\n    background: darkorange;\n    border-bottom-right-radius: 50%;\n    border-bottom-left-radius: 50%;\n    background: #c0392b;\n    animation: glowing 5s infinite; }\n  .samuraiHead .leftEye {\n    left: 0.77778vmax; }\n  .samuraiHead .rightEye {\n    right: 0.77778vmax; }\n  .samuraiHead .mouth {\n    position: absolute;\n    display: block;\n    left: calc(50% - calc(7vmax - 7vmax/8)/2);\n    bottom: 0;\n    width: calc(7vmax - 7vmax/8);\n    height: 2.8vmax;\n    background: #7f7f7f;\n    border-bottom-left-radius: 100%;\n    border-bottom-right-radius: 100%;\n    transform: scale(0.98); }\n  .samuraiHead .armorPiece {\n    background: transparent;\n    display: block;\n    position: absolute;\n    top: -20%;\n    border: solid red;\n    border-width: 3.5vmax 1.75vmax;\n    border-top-color: transparent;\n    overflow: hidden;\n    z-index: -3; }\n  .samuraiHead .leftArmor {\n    left: -55%;\n    border-left-color: transparent; }\n  .samuraiHead .rightArmor {\n    right: -55%;\n    border-right-color: transparent; }\n  .samuraiHead .helmet {\n    z-index: -1;\n    height: 3.5vmax;\n    width: calc(7vmax - 7vmax/8);\n    position: absolute;\n    top: -39%;\n    border-right-color: transparent;\n    border-left-color: transparent;\n    left: calc(50% - calc(7vmax - 7vmax/8)/2);\n    border-radius: 50% 50% 0% 0%;\n    display: block;\n    background-color: red;\n    border: 0.23333vmax solid #998100;\n    border-right-color: transparent;\n    border-left-color: transparent;\n    box-sizing: border-box; }\n  .samuraiHead .neckArmor {\n    z-index: -15;\n    width: 7vmax;\n    height: 1.75vmax;\n    position: absolute;\n    left: calc(50% - calc(7vmax - 7vmax/8)/2);\n    bottom: 10%;\n    background: #cc0000; }\n  .samuraiHead.mini {\n    z-index: 1000;\n    margin: auto;\n    bottom: 0;\n    top: 10%;\n    left: calc(50% - 3.5vmax);\n    transform: scale(0.5);\n    filter: brightness(0.5); }\n    .samuraiHead.mini .eye {\n      background: darkorange;\n      filter: brightness(0.5);\n      animation: none; }\n    @media screen and (max-width: 900px) {\n      .samuraiHead.mini {\n        transform: scale(0.7); } }\n\n@keyframes glowing {\n  0% {\n    filter: brightness(1.5); }\n  50% {\n    filter: brightness(1); }\n  100% {\n    filter: brightness(1.5); } }\n", ""]);
 
 // exports
 
@@ -30844,45 +30850,89 @@ var samuraiBody = function (_React$Component) {
 			if (this.props.addClass == "mini") {
 				return false;
 			}
+
+			var samuraiBodyTL = new TimelineMax();
+
+			samuraiBodyTL.from(".jumbo.samuraiBody", 1, {
+				y: "100%"
+			}).to(".jumbo.coreCoverLeft", 1, {
+				width: "0",
+				right: "50%"
+			}, "coverMove").to(".jumbo.coreCoverRight", 1, {
+				width: "0",
+				onStart: function onStart() {
+					document.getElementsByClassName("core")[1].className += " animated";
+				}
+			}, "coverMove").from(".jumbo.backPlate.plate1", 1, {
+				y: "10",
+				scale: 0.8,
+				display: "none",
+				delay: 0.25,
+				ease: Power4.easeInOut
+			}).from(".jumbo.backPlate.plate2", 1, {
+				y: "-60%",
+				display: "none",
+				ease: Power4.easeInOut
+			}, "-=.25").from(".jumbo.frontPlate.plate1", 1, {
+				y: "-10",
+				display: "none",
+				scale: 1.11,
+				delay: 0.25,
+				ease: Power4.easeInOut
+			}).from(".jumbo.frontPlate.plate2", 1, { y: "-60%", display: "none", ease: Power4.easeInOut }, "-=.25").from(".padLeft", 1, {
+				x: "35%",
+				ease: Power4.easeInOut
+			}, "padMove").from(".jumbo.padRight", 1, {
+				x: "-35%",
+				ease: Power4.easeInOut
+			}, "padMove").from(".jumbo.penta", 1, {
+				rotationX: "90deg",
+				ease: Back.easeOut
+			}).from(".jumbo.bodyAnimWrap", 1, {
+				y: "5%",
+				ease: Bounce.easeOut
+			}).timeScale(2);
 		}
 	}, {
 		key: 'render',
 		value: function render() {
 			return _react2.default.createElement(
 				'div',
-				{ className: 'bodyAnimWrap' },
+				{ className: "bodyAnimWrap " + this.props.addClass },
 				_react2.default.createElement(
 					'div',
-					{ className: 'samuraiBodyWrapper' },
-					_react2.default.createElement('span', { className: 'backPlate plate1' }),
-					_react2.default.createElement('span', { className: 'backPlate plate2' }),
+					{ className: "samuraiBodyWrapper " + this.props.addClass },
+					_react2.default.createElement('span', { className: "backPlate plate1 " + this.props.addClass }),
+					_react2.default.createElement('span', { className: "backPlate plate2 " + this.props.addClass }),
 					_react2.default.createElement(
 						'div',
-						{ className: 'samuraiBody' },
+						{ className: "samuraiBody " + this.props.addClass },
 						_react2.default.createElement(
 							'span',
-							{ className: 'core' },
-							_react2.default.createElement('span', { className: 'coreMiddle' }),
-							_react2.default.createElement('span', { className: 'coreEnd' })
+							{ className: "core " + this.props.addClass },
+							_react2.default.createElement('span', { className: "coreCoverLeft coreCover " + this.props.addClass }),
+							_react2.default.createElement('span', { className: "coreCoverRight coreCover " + this.props.addClass }),
+							_react2.default.createElement('span', { className: "coreMiddle " + this.props.addClass }),
+							_react2.default.createElement('span', { className: "coreEnd " + this.props.addClass })
 						)
 					),
 					_react2.default.createElement(
 						'span',
-						{ className: 'frontPlate plate1' },
-						_react2.default.createElement('span', { className: 'pad padLeft' }),
-						_react2.default.createElement('span', { className: 'pad padRight' }),
+						{ className: "frontPlate plate1 " + this.props.addClass },
+						_react2.default.createElement('span', { className: "pad padLeft " + this.props.addClass }),
+						_react2.default.createElement('span', { className: "pad padRight " + this.props.addClass }),
 						_react2.default.createElement(
 							'span',
-							{ className: 'penta' },
-							_react2.default.createElement('img', { className: 'shi',
+							{ className: "penta " + this.props.addClass },
+							_react2.default.createElement('img', { className: "shi " + this.props.addClass,
 								src: _death2.default,
 								alt: 'Japanese character for death' })
 						)
 					),
 					_react2.default.createElement(
 						'span',
-						{ className: 'frontPlate plate2' },
-						_react2.default.createElement('span', { className: 'belt' })
+						{ className: "frontPlate plate2 " + this.props.addClass },
+						_react2.default.createElement('span', { className: "belt " + this.props.addClass })
 					)
 				)
 			);
@@ -30934,7 +30984,7 @@ exports = module.exports = __webpack_require__(5)(undefined);
 
 
 // module
-exports.push([module.i, ".bodyAnimWrap {\n  width: 100%;\n  height: 100%;\n  position: absolute; }\n\n.samuraiBodyWrapper {\n  top: 10%;\n  width: 15vmax;\n  height: 15vmax;\n  left: calc(50% - 15vmax / 2);\n  position: absolute;\n  z-index: 400; }\n  .samuraiBodyWrapper * {\n    box-sizing: border-box; }\n  .samuraiBodyWrapper .samuraiBody {\n    position: absolute;\n    left: 0;\n    top: 0;\n    width: 100%;\n    height: 100%;\n    background: #3f3f3f;\n    -webkit-clip-path: polygon(0 0, 100% 0, 93% 100%, 7% 100%);\n    clip-path: polygon(0 0, 100% 0, 93% 100%, 7% 100%);\n    border-radius: 5px 5px 2px 2px; }\n    .samuraiBodyWrapper .samuraiBody .coreCover {\n      width: 3.125vmax;\n      height: 8.82353vmax;\n      background: inherit;\n      filter: brightness(0.9);\n      position: absolute;\n      top: calc(50% - 15vmax / 3);\n      z-index: 2; }\n      .samuraiBodyWrapper .samuraiBody .coreCover.coreCoverLeft {\n        left: calc(50% - 15vmax / 5.8);\n        border-radius: 0.5vmax 0 0 0.5vmax; }\n      .samuraiBodyWrapper .samuraiBody .coreCover.coreCoverRight {\n        right: calc(50% - 15vmax / 5.8);\n        border-radius: 0 0.5vmax 0.5vmax 0; }\n    .samuraiBodyWrapper .samuraiBody .core {\n      width: 5vmax;\n      height: 7.5vmax;\n      position: absolute;\n      left: calc(50% - 15vmax / 6);\n      top: calc(50% - 15vmax / 3.5);\n      z-index: 0;\n      border-radius: 0.5vmax;\n      overflow: hidden; }\n      .samuraiBodyWrapper .samuraiBody .core.animated {\n        background: linear-gradient(90deg, red, yellow, darkorange);\n        animation: shaking 0.15s linear infinite; }\n        .samuraiBodyWrapper .samuraiBody .core.animated .coreMiddle {\n          animation: changeOpacity 0.15s linear infinite;\n          animation-delay: 0.07s;\n          background: linear-gradient(90deg, yellow, darkorange, red); }\n        .samuraiBodyWrapper .samuraiBody .core.animated .coreEnd {\n          animation: changeOpacity 0.15s linear infinite;\n          animation-delay: 0.15s; }\n      .samuraiBodyWrapper .samuraiBody .core .coreMiddle {\n        border-radius: 0.5vmax;\n        width: 5vmax;\n        height: 7.5vmax;\n        content: \"\";\n        background: darkorange;\n        position: absolute;\n        left: 0;\n        top: 0;\n        z-index: 5; }\n      .samuraiBodyWrapper .samuraiBody .core .coreEnd {\n        border-radius: 0.5vmax;\n        width: 5vmax;\n        height: 7.5vmax;\n        content: \"\";\n        background: linear-gradient(90deg, darkorange, red, yellow);\n        position: absolute;\n        left: 0;\n        top: 0;\n        z-index: 4; }\n  .samuraiBodyWrapper .plate1 {\n    background-color: #cc0000;\n    width: 120%;\n    height: 50%;\n    position: absolute;\n    left: -10%;\n    top: 0;\n    margin: auto;\n    z-index: 10;\n    border-radius: 0 0 5% 5%; }\n    .samuraiBodyWrapper .plate1 .pad {\n      width: 40%;\n      height: 30%;\n      background-color: darkred;\n      position: absolute;\n      top: -20%; }\n    .samuraiBodyWrapper .plate1 .padLeft {\n      left: -20%;\n      transform: skew(5deg);\n      overflow: hidden; }\n      .samuraiBodyWrapper .plate1 .padLeft:after {\n        content: \"\";\n        display: block;\n        position: absolute;\n        width: 90%;\n        height: 100%;\n        background: black;\n        transform: rotateZ(45deg);\n        border: 0.2vmax solid red; }\n    .samuraiBodyWrapper .plate1 .padRight {\n      right: -20%;\n      transform: skew(-5deg); }\n    .samuraiBodyWrapper .plate1 .penta {\n      width: 50%;\n      height: 80%;\n      overflow: hidden;\n      background: black;\n      border: 0.2vmax solid yellow;\n      -webkit-clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);\n      clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);\n      position: absolute;\n      left: 25%;\n      bottom: 0; }\n      .samuraiBodyWrapper .plate1 .penta .shi {\n        border-radius: 50%;\n        width: 80%;\n        height: 80%;\n        left: 13%;\n        top: 15%;\n        bottom: 0%;\n        position: absolute; }\n  .samuraiBodyWrapper .plate2 {\n    background-color: #cc0000;\n    width: 110%;\n    height: 60%;\n    position: absolute;\n    left: -5%;\n    top: 45%;\n    z-index: 9;\n    margin: auto;\n    -webkit-clip-path: polygon(0 0, 100% 0, 98% 100%, 2% 100%);\n    clip-path: polygon(0 0, 100% 0, 98% 100%, 2% 100%); }\n    .samuraiBodyWrapper .plate2 .belt {\n      width: 100%;\n      height: 30%;\n      position: absolute;\n      background: black; }\n  .samuraiBodyWrapper .backPlate {\n    filter: brightness(0.7);\n    z-index: -1; }\n  .samuraiBodyWrapper .frontPlate {\n    transform: scale(1.01); }\n\n@keyframes changeOpacity {\n  0% {\n    opacity: 1; }\n  25% {\n    opacity: 0; }\n  75% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes shaking {\n  0% {\n    transform: translateX(0.3px) rotateY(1deg); }\n  25% {\n    transform: translateX(-0.3px) rotateY(-1deg); }\n  75% {\n    transform: translateX(-0.3px) rotateY(-1deg); }\n  100% {\n    transform: translateX(0.3px) rotateY(1deg); } }\n", ""]);
+exports.push([module.i, ".bodyAnimWrap {\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  top: 13.5vmax; }\n  .bodyAnimWrap.mini {\n    z-index: 1000;\n    margin: auto;\n    bottom: 0;\n    top: -40%;\n    left: calc(50% - 2vmaxvmax);\n    transform: scale(0.25);\n    filter: brightness(0.5); }\n    @media screen and (max-width: 900px) {\n      .bodyAnimWrap.mini {\n        top: 0%; } }\n\n.samuraiBodyWrapper {\n  width: 13vmax;\n  height: 13vmax;\n  left: calc(50% - 13vmax / 2);\n  position: absolute;\n  z-index: 400; }\n  .samuraiBodyWrapper * {\n    box-sizing: border-box; }\n  .samuraiBodyWrapper .samuraiBody {\n    position: absolute;\n    left: 0;\n    top: 0;\n    width: 100%;\n    height: 100%;\n    background: #3f3f3f;\n    -webkit-clip-path: polygon(0 0, 100% 0, 93% 100%, 7% 100%);\n    clip-path: polygon(0 0, 100% 0, 93% 100%, 7% 100%);\n    border-radius: 5px 5px 2px 2px; }\n    .samuraiBodyWrapper .samuraiBody .coreCover {\n      width: 2.70833vmax;\n      height: 7.64706vmax;\n      background: gray;\n      filter: brightness(0.9);\n      position: absolute;\n      top: calc(50% - 13vmax / 3);\n      z-index: 200; }\n      .samuraiBodyWrapper .samuraiBody .coreCover.coreCoverLeft {\n        left: calc(50% - 13vmax / 5.8);\n        border-radius: 0.43333vmax 0 0 0.43333vmax; }\n      .samuraiBodyWrapper .samuraiBody .coreCover.coreCoverRight {\n        right: calc(50% - 13vmax / 5.8);\n        border-radius: 0 0.43333vmax 0.43333vmax 0; }\n    .samuraiBodyWrapper .samuraiBody .core {\n      width: 4.33333vmax;\n      height: 6.5vmax;\n      position: absolute;\n      left: calc(50% - 13vmax / 6);\n      top: calc(50% - 13vmax / 3.5);\n      z-index: 0;\n      border-radius: 0.43333vmax;\n      overflow: hidden; }\n      .samuraiBodyWrapper .samuraiBody .core.animated {\n        background: linear-gradient(90deg, red, yellow, darkorange);\n        animation: shaking 0.15s linear infinite; }\n        .samuraiBodyWrapper .samuraiBody .core.animated .coreMiddle {\n          animation: changeOpacity 0.15s linear infinite;\n          animation-delay: 0.07s;\n          background: linear-gradient(90deg, yellow, darkorange, red); }\n        .samuraiBodyWrapper .samuraiBody .core.animated .coreEnd {\n          animation: changeOpacity 0.15s linear infinite;\n          animation-delay: 0.15s; }\n      .samuraiBodyWrapper .samuraiBody .core .coreMiddle {\n        border-radius: 0.43333vmax;\n        width: 4.33333vmax;\n        height: 6.5vmax;\n        content: \"\";\n        background: darkorange;\n        position: absolute;\n        left: 0;\n        top: 0;\n        z-index: 5; }\n      .samuraiBodyWrapper .samuraiBody .core .coreEnd {\n        border-radius: 0.43333vmax;\n        width: 4.33333vmax;\n        height: 6.5vmax;\n        content: \"\";\n        background: linear-gradient(90deg, darkorange, red, yellow);\n        position: absolute;\n        left: 0;\n        top: 0;\n        z-index: 4; }\n  .samuraiBodyWrapper .plate1 {\n    background-color: #e60000;\n    width: 120%;\n    height: 50%;\n    position: absolute;\n    left: -10%;\n    top: 0;\n    margin: auto;\n    z-index: 10;\n    border-radius: 0 0 5% 5%; }\n    .samuraiBodyWrapper .plate1 .pad {\n      width: 40%;\n      height: 30%;\n      background-color: darkred;\n      position: absolute;\n      top: -20%; }\n    .samuraiBodyWrapper .plate1 .padLeft {\n      left: -30%;\n      transform: skew(5deg);\n      overflow: hidden; }\n    .samuraiBodyWrapper .plate1 .padRight {\n      right: -30%;\n      transform: skew(-5deg); }\n    .samuraiBodyWrapper .plate1 .penta {\n      width: 50%;\n      height: 80%;\n      overflow: hidden;\n      background: black;\n      border: 0.2vmax solid yellow;\n      -webkit-clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);\n      clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);\n      position: absolute;\n      left: 25%;\n      bottom: 0; }\n      .samuraiBodyWrapper .plate1 .penta .shi {\n        border-radius: 50%;\n        width: 80%;\n        height: 80%;\n        left: 13%;\n        top: 15%;\n        bottom: 0%;\n        position: absolute; }\n  .samuraiBodyWrapper .plate2 {\n    background-color: #e60000;\n    width: 110%;\n    height: 60%;\n    position: absolute;\n    left: -5%;\n    top: 45%;\n    z-index: 9;\n    margin: auto;\n    -webkit-clip-path: polygon(0 0, 100% 0, 98% 100%, 2% 100%);\n    clip-path: polygon(0 0, 100% 0, 98% 100%, 2% 100%); }\n    .samuraiBodyWrapper .plate2 .belt {\n      left: 0;\n      width: 100%;\n      height: 30%;\n      position: absolute;\n      background: black; }\n  .samuraiBodyWrapper .backPlate {\n    filter: brightness(0.7);\n    z-index: -1; }\n  .samuraiBodyWrapper .frontPlate {\n    transform: scale(1.01); }\n\n@keyframes changeOpacity {\n  0% {\n    opacity: 1; }\n  25% {\n    opacity: 0; }\n  75% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes shaking {\n  0% {\n    transform: translateX(0.3px) rotateY(1deg); }\n  25% {\n    transform: translateX(-0.3px) rotateY(-1deg); }\n  75% {\n    transform: translateX(-0.3px) rotateY(-1deg); }\n  100% {\n    transform: translateX(0.3px) rotateY(1deg); } }\n", ""]);
 
 // exports
 
