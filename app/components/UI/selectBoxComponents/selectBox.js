@@ -15,9 +15,6 @@ const partsArray = {
 	legsArray: Object.keys(legsList)
 }
 
-console.log(partsArray.headArray);
-console.log(partsArray.bodyArray);
-
 
 export default class SelectBox extends React.Component{
 	constructor(props){

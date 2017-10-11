@@ -29936,9 +29936,6 @@ var partsArray = {
 	legsArray: Object.keys(_partsList.legsList)
 };
 
-console.log(partsArray.headArray);
-console.log(partsArray.bodyArray);
-
 var SelectBox = function (_React$Component) {
 	_inherits(SelectBox, _React$Component);
 
