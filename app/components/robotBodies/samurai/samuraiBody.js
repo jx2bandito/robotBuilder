@@ -83,9 +83,11 @@ export default class samuraiBody extends React.Component{
 		ease: Back.easeOut
 	  })
 	  .from(".jumbo.bodyAnimWrap", 1, {
-		y: "5%",
-		ease: Bounce.easeOut
+		y: "5%"
 	  })
+	  .from(".jumbo.neck", 1, {
+		scale: "0"
+	  }, "-=.5")
 	  .timeScale(2);
 		
 	}
@@ -94,7 +96,9 @@ export default class samuraiBody extends React.Component{
 		return (
 			<div className={"bodyAnimWrap " + this.props.addClass}>
 				<div className={"samuraiBodyWrapper " + this.props.addClass}>
-					<span className={"backPlate plate1 " + this.props.addClass}></span>
+					<span className={"backPlate plate1 " + this.props.addClass}>
+						<span className={"neck " + this.props.addClass}></span>
+					</span>
 					<span className={"backPlate plate2 " + this.props.addClass}></span>
 					<div className={"samuraiBody " + this.props.addClass}>
 					<span className={"core " + this.props.addClass}>
@@ -105,6 +109,7 @@ export default class samuraiBody extends React.Component{
 					</span>
 					</div>
 				<span className={"frontPlate plate1 " + this.props.addClass}>
+					<span className={"neck " + this.props.addClass}></span>
 					<span className={"pad padLeft " + this.props.addClass}></span>
 					<span className={"pad padRight " + this.props.addClass}></span>
 					<span className={"penta " + this.props.addClass}>
