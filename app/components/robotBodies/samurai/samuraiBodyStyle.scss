@@ -109,7 +109,7 @@
   .plate1 {
     background-color: $plateBG;
     width: 120%;
-    height: 50%;
+    height: 70%;
     position: absolute;
     left: -10%;
     top: 0;
@@ -118,10 +118,10 @@
     border-radius: 0 0 5% 5%;
     .pad {
       width: 40%;
-      height: 30%;
+      height: 20%;
       background-color: darkred;
       position: absolute;
-      top: -20%;
+      top: -10%;
     }
     .padLeft {
       left: -30%;
@@ -169,6 +169,7 @@
       left: 0;
       width: 100%;
       height: 30%;
+	  top: 40%;
       position: absolute;
       background: black;
     }

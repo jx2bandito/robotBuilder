@@ -15,6 +15,10 @@ const partsArray = {
 	legsArray: Object.keys(legsList)
 }
 
+console.log(partsArray.headArray);
+console.log(partsArray.bodyArray);
+
+
 export default class SelectBox extends React.Component{
 	constructor(props){
 		super(props);
@@ -63,11 +67,12 @@ export default class SelectBox extends React.Component{
 	
 	rotatePartLeft(partType){
 		this.setState(function(state, props){
-			let newIndex = partsArray[partType + "Array"].indexOf(state.previewHead) - 1;
-			newIndex = (newIndex <= -1) ? partsArray[partType + "Array"].length - 1 : newIndex;
 			let upperType = partType.split("");
 			upperType[0] = upperType[0].toUpperCase();
 			upperType = upperType.join("");
+			let newIndex = partsArray[partType + "Array"].indexOf(state["preview" + upperType]) - 1;
+			newIndex = (newIndex <= -1) ? partsArray[partType + "Array"].length - 1 : newIndex;
+
 			return {
 				["preview" + upperType]: partsArray[partType + "Array"][newIndex]
 			}
@@ -76,11 +81,12 @@ export default class SelectBox extends React.Component{
 	
 	rotatePartRight(partType){
 		this.setState(function(state, props){
-			let newIndex = partsArray[partType + "Array"].indexOf(state.previewHead) + 1;
-			newIndex = (newIndex >= partsArray[partType + "Array"].length) ? 0 : newIndex;
 			let upperType = partType.split("");
 			upperType[0] = upperType[0].toUpperCase();
 			upperType = upperType.join("");
+			let newIndex = partsArray[partType + "Array"].indexOf(state["preview" + upperType]) + 1;
+			newIndex = (newIndex >= partsArray[partType + "Array"].length) ? 0 : newIndex;
+
 			return {
 				["preview" + upperType]: partsArray[partType + "Array"][newIndex]
 			}
