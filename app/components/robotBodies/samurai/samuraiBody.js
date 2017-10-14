@@ -82,13 +82,14 @@ export default class samuraiBody extends React.Component{
 		rotationX: "90deg",
 		ease: Back.easeOut
 	  })
-	  .from(".jumbo.bodyAnimWrap", 1, {
-		y: "5%"
+	  .from(".jumbo.bodyAnimWrap", .5, {
+		y: "5%",
+		ease: Back.easeInOut
 	  })
-	  .from(".jumbo.neck", 1, {
+	  .from(".jumbo.neck", .5, {
 		scale: "0"
-	  }, "-=.5")
-	  .timeScale(2);
+	  }, "-=.15")
+	  .timeScale(2.5);
 		
 	}
 	
