@@ -1,14 +1,16 @@
+
 .bodyAnimWrap {
   width: 100%;
   height: 100%;
   position: absolute;
-    top: 15vmax;
+  top: 15vmax;
+  z-index: 300;
   &.mini{
 		z-index: 1000;
 		margin: auto;
 		bottom: 0;
 		top: -40%;
-		left: calc(50% - 2vmaxvmax);
+		left: 0;
 		transform: scale(0.25);
 		filter: brightness(0.5);
 		@media screen and (max-width: 900px){
@@ -27,7 +29,6 @@
   height: $baseSize * 1;
   left: calc(50% - #{$baseSize} / 2);
   position: absolute;
-  z-index: 400;
   .samuraiBody {
     position: absolute;
     left: 0;
@@ -90,6 +91,7 @@
         left: 0;
         top: 0;
         z-index: 5;
+        
       }
       .coreEnd {
         border-radius: $baseSize/30;
@@ -106,16 +108,17 @@
   }
   
   $plateBG: darken(red, 5%);
+  
   .plate1 {
     background-color: $plateBG;
     width: 120%;
-    height: 70%;
+    height: 100%;
     position: absolute;
     left: -10%;
     top: 0;
     margin: auto;
     z-index: 10;
-    border-radius: 0 0 5% 5%;
+    border-radius: $baseSize * 0.02;
 	.neck{
       position: absolute;
       content: "";
@@ -130,24 +133,24 @@
 	  transform-origin: 50% 100%;
     }
     .pad {
-      width: 40%;
-      height: 20%;
+      width: 60%;
+      height: 5%;
+      top: -2%;
       background-color: darkred;
       position: absolute;
-      top: -10%;
     }
     .padLeft {
-      left: -30%;
+      left: -40%;
       transform: skew(5deg);
       overflow: hidden;
     }
     .padRight {
-      right: -30%;
+      right: -40%;
       transform: skew(-5deg);
     }
     .penta {
       width: 50%;
-      height: 80%;
+      height: 50%;
       overflow: hidden;
       background: black;
       border: 0.2vmax solid yellow;
@@ -155,7 +158,7 @@
       clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
       position: absolute;
       left: 25%;
-      bottom: 0;
+      top: 25%;
       .shi {
         border-radius: 50%;
         width: 80%;
@@ -173,7 +176,7 @@
     height: 60%;
     position: absolute;
     left: -5%;
-    top: 45%;
+    top: 75%;
     z-index: 9;
     margin: auto;
     -webkit-clip-path: polygon(0 0, 100% 0, 98% 100%, 2% 100%);
@@ -189,7 +192,7 @@
   }
   .backPlate {
     filter: brightness(0.7);
-    z-index: -1;
+    z-index: -500;
   }
   .frontPlate {
     transform: scale(1.01);
