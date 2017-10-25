@@ -36,10 +36,12 @@ export default class App extends React.Component{
 		return (
 			<div>
 				<SelectBox changePart={this.changePart}/>
-				<Head addClass="jumbo" />
-				<Body addClass="jumbo" />
-				<Arms addClass="jumbo" />
-				<Legs addClass="jumbo" />
+				<div className="animationWrapper">
+					<Head />
+					<Body />
+					<Arms />
+					<Legs />
+				</div>
 			</div>
 		)
 		

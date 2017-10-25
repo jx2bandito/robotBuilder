@@ -5,20 +5,10 @@
   position: absolute;
   top: 15vmax;
   z-index: 300;
-  &.mini{
-		z-index: 1000;
-		margin: auto;
-		bottom: 0;
-		top: -40%;
-		left: 0;
-		transform: scale(0.25);
-		filter: brightness(0.5);
-		@media screen and (max-width: 900px){
-			top: 0%;
-		}
-  }
+
 }
 
+  
 .samuraiBodyWrapper {
   * {
     box-sizing: border-box;
@@ -228,3 +218,16 @@
     transform: translateX(0.3px) rotateY(1deg);
   }
 }
+
+ .portrait .bodyAnimWrap{
+		z-index: 1000;
+		margin: auto;
+		bottom: 0;
+		top: -40%;
+		left: 0;
+		transform: scale(0.25);
+		filter: brightness(0.5);
+		@media screen and (max-width: 900px){
+			top: 0%;
+		}
+ }
