@@ -30928,6 +30928,8 @@ var samuraiBody = function (_React$Component) {
 			}, "-=.25").from(".animationWrapper  .frontPlate.plate1", 1, {
 				y: "-0.25%",
 				onStart: function onStart() {
+
+					document.querySelector(".animationWrapper .legAnimWrap").style.zIndex = 298;
 					document.querySelector(".animationWrapper .armContainerLeft").style.zIndex = 298;
 					document.querySelector(".animationWrapper .armContainerRight").style.zIndex = 298;
 				},
@@ -30939,9 +30941,7 @@ var samuraiBody = function (_React$Component) {
 				y: "-60%",
 				display: "none",
 				ease: Power4.easeInOut,
-				onStart: function onStart() {
-					document.querySelector(".animationWrapper .legAnimWrap").style.zIndex = 298;
-				}
+				onStart: function onStart() {}
 			}, "-=.25").from(".animationWrapper .padLeft", 1, {
 				x: "40%",
 				ease: Power4.easeInOut

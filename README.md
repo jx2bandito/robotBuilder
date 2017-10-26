@@ -11,7 +11,7 @@
  Project page: https://jx2bandito.github.io/robotBuilder
   
 ### User stories: <br />
-* User can preview and rotate through available robot parts (currently limited to a samurai head part, a samurai body part, and placeholders)
+* User can preview and rotate through available robot parts
 * User can select an available robot part, which will assemble via animation. 
 * User can assemble multiple parts simultaneously. 
 
