@@ -47,7 +47,7 @@ export default class ArmsSelect extends React.Component{
 				<p>ARMS</p>
 				<span className="preview">
 					<span className="portrait">
-						<Portrait addClass="mini"/>
+						<Portrait />
 					</span>
 						<span className="description">
 						{this.props.children[1]}

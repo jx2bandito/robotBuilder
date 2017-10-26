@@ -48,7 +48,7 @@ export default class HeadSelect extends React.Component{
 				<p>HEAD</p>
 				<span className="preview">
 					<span className="portrait">
-						<Portrait addClass="mini"/>
+						<Portrait />
 					</span>
 						<span className="description">
 						{this.props.children[1]}

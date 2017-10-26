@@ -1,33 +1,19 @@
-
 .bodyAnimWrap {
   width: 100%;
   height: 100%;
   position: absolute;
-  top: 15vmax;
-  z-index: 300;
-  &.mini{
-		z-index: 1000;
-		margin: auto;
-		bottom: 0;
-		top: -40%;
-		left: 0;
-		transform: scale(0.25);
-		filter: brightness(0.5);
-		@media screen and (max-width: 900px){
-			top: 0%;
-		}
-  }
+  z-index: 299;
 }
 
 .samuraiBodyWrapper {
   * {
     box-sizing: border-box;
   }
-
   $baseSize: 13vmax;
   width: $baseSize;
   height: $baseSize * 1;
   left: calc(50% - #{$baseSize} / 2);
+  top: 15vmax;
   position: absolute;
   .samuraiBody {
     position: absolute;
@@ -40,7 +26,7 @@
     clip-path: polygon(0 0, 100% 0, 93% 100%, 7% 100%);
     border-radius: 5px 5px 2px 2px;
     .coreCover {
-      width: $baseSize / 4.8;
+      width: $baseSize / 4.5;
       height: $baseSize / 1.7;
       background: gray;
       filter: brightness(0.9);
@@ -48,11 +34,11 @@
       top: calc(50% - #{$baseSize} / 3);
       z-index: 200;
       &.coreCoverLeft {
-        left: calc(50% - #{$baseSize} / 5.8);
+        left: calc(50% - #{$baseSize} / 5.3);
         border-radius: $baseSize/30 0 0 $baseSize/30;
       }
       &.coreCoverRight {
-        right: calc(50% - #{$baseSize} / 5.8);
+        right: calc(50% - #{$baseSize} / 5.3);
         border-radius: 0 $baseSize/30 $baseSize/30 0;
       }
     }
@@ -91,7 +77,6 @@
         left: 0;
         top: 0;
         z-index: 5;
-        
       }
       .coreEnd {
         border-radius: $baseSize/30;
@@ -107,8 +92,18 @@
     }
   }
   
+  .samuraiLowerBody{
+    transform-origin: 50% 0%;
+    height: 40%;
+    width: 80%;
+    left: 10%;
+    position: absolute;
+    background: #3f3f3f;
+    bottom: -35%;
+  }
+
   $plateBG: darken(red, 5%);
-  
+
   .plate1 {
     background-color: $plateBG;
     width: 120%;
@@ -119,7 +114,7 @@
     margin: auto;
     z-index: 10;
     border-radius: $baseSize * 0.02;
-	.neck{
+    .neck {
       position: absolute;
       content: "";
       width: 30%;
@@ -129,8 +124,8 @@
       height: 30%;
       background: #1f1f1f;
       -webkit-clip-path: polygon(20% 39%, 80% 39%, 100% 100%, 0% 100%);
-	  clip-path: polygon(20% 39%, 80% 39%, 100% 100%, 0% 100%);
-	  transform-origin: 50% 100%;
+      clip-path: polygon(20% 39%, 80% 39%, 100% 100%, 0% 100%);
+      transform-origin: 50% 100%;
     }
     .pad {
       width: 60%;
@@ -160,6 +155,10 @@
       left: 25%;
       top: 25%;
       .shi {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
         border-radius: 50%;
         width: 80%;
         height: 80%;
@@ -185,7 +184,7 @@
       left: 0;
       width: 100%;
       height: 30%;
-	  top: 40%;
+      top: 40%;
       position: absolute;
       background: black;
     }
@@ -228,3 +227,19 @@
     transform: translateX(0.3px) rotateY(1deg);
   }
 }
+
+ .portrait .bodyAnimWrap{
+		z-index: 1000;
+		margin: auto;
+		top: -40%;
+		left: 0;
+		transform-origin: 50% 0%;
+		transform: scale(0.25);
+		filter: brightness(0.5);
+		@media screen and (max-width: 1550px){
+			top: 0%;
+		}
+		@media screen and (max-width: 768px) and (max-height: 768px){
+			transform: scale(0.5);
+		}
+ }

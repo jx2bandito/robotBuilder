@@ -26,8 +26,8 @@ export default class SelectBox extends React.Component{
 			addTabClass4: null,
 			previewHead: "samuraiHead",
 			previewBody: "samuraiBody",
-			previewArms: "placeholder",
-			previewLegs: "placeholder"
+			previewArms: "samuraiArms",
+			previewLegs: "samuraiLegs"
 		}
 		
 		this.tabOn=this.tabOn.bind(this);
@@ -35,6 +35,8 @@ export default class SelectBox extends React.Component{
 		this.tabSwitch=this.tabSwitch.bind(this);
 		this.assembleHead=this.assembleHead.bind(this);
 		this.assembleBody=this.assembleBody.bind(this);
+		this.assembleArms=this.assembleArms.bind(this);
+		this.assembleLegs=this.assembleLegs.bind(this);
 		this.rotatePartLeft=this.rotatePartLeft.bind(this);
 		this.rotatePartRight=this.rotatePartRight.bind(this);
 	}
@@ -98,6 +100,15 @@ export default class SelectBox extends React.Component{
 		this.props.changePart("currentBody", this.state.previewBody);
 	}
 	
+	assembleArms(){
+		this.props.changePart("currentArms", this.state.previewArms);
+	}
+	
+	assembleLegs(){
+		this.props.changePart("currentLegs", this.state.previewLegs);
+	}
+	
+	
 	render(){
 	
 		
@@ -136,7 +147,7 @@ export default class SelectBox extends React.Component{
 					onMouseLeave={this.tabOff} 
 					addClass={this.state.addTabClass3} 
 					onTouchStart={this.tabSwitch} 
-					onClickSelect={this.assembleHead}
+					onClickSelect={this.assembleArms}
 					onClickLeft={this.rotatePartLeft} 
 					onClickRight={this.rotatePartRight}
 				>
@@ -149,7 +160,7 @@ export default class SelectBox extends React.Component{
 					onMouseLeave={this.tabOff} 
 					addClass={this.state.addTabClass4} 
 					onTouchStart={this.tabSwitch} 
-					onClickSelect={this.assembleHead}
+					onClickSelect={this.assembleLegs}
 					onClickLeft={this.rotatePartLeft} 
 					onClickRight={this.rotatePartRight}
 				>

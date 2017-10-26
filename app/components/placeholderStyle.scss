@@ -1,13 +1,9 @@
-.placeholder{
-	&.mini{
+.portrait .placeholder{
 		width: 100%;
 		left: 0;
 		top: 0;
 		height: 100%;
-	}
-	
-	&.jumbo{
-		display: none;
-	}
-	
+}
+.animationWrapper .placeholder{
+	display: none;
 }

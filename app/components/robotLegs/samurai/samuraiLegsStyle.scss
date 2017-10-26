@@ -1,0 +1,176 @@
+.legAnimWrap {
+  *,
+  *:after,
+  *:before {
+    box-sizing: border-box;
+  }
+  z-index: 298;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 32.5vmax;
+  .samuraiLegs {
+    position: absolute;
+    $baseSize: 13.9vmax;
+    width: $baseSize;
+    height: $baseSize * 0.3;
+    left: calc(50% - #{$baseSize} / 2);
+    .legToBody {
+      width: 20%;
+      height: 200%;
+      bottom: 0;
+      background: #3d3d3d;
+      left: calc(50% - 20% / 2);
+      position: absolute;
+      z-index: -50;
+    }
+    .pelvis {
+      width: 20%;
+      height: 100%;
+      background: red;
+      left: calc(50% - 20% / 2);
+      position: absolute;
+      z-index: 1;
+    }
+    .pelvisConnectors {
+      width: 70%;
+      height: 25%;
+      top: 35%;
+      left: calc(50% - 70% / 2);
+      position: absolute;
+      z-index: 0;
+      background: #3f3f3f;
+    }
+    .upperThigh {
+      width: 43%;
+      height: 150%;
+      background: darken(red, 10%);
+      position: absolute;
+      z-index: 2;
+      .lowerThigh {
+        transform-origin: 50% 0%;
+        width: 80%;
+        left: 10%;
+        top: 100%;
+        height: 110%;
+        position: absolute;
+        border-top: $baseSize * 0.01 solid yellow;
+        border-bottom: $baseSize * 0.01 solid yellow;
+        background: darken(red, 5%);
+
+        .knee {
+          width: 110%;
+          height: 20%;
+          bottom: -20%;
+          left: calc(50% - 110% / 2);
+          background: black;
+          border-radius: 25%;
+          border: $baseSize * 0.01 solid yellow;
+          position: absolute;
+          .shin {
+			left: 0;
+            transform-origin: 50% 0%;
+            height: $baseSize * 0.65;
+            width: 100%;
+            bottom: -$baseSize * 0.66;
+            position: absolute;
+            background: red;
+            z-index: 0;
+            &.rightShin {
+              border-left: $baseSize * 0.07 solid darkred;
+            }
+            &.leftShin {
+              border-right: $baseSize * 0.07 solid darkred;
+            }
+          }
+          .footWrapper {
+            position: absolute;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -10;
+          }
+          .footConnector {
+            z-index: -1;
+            background: #3d3d3d;
+            position: absolute;
+            height: $baseSize * 0.33;
+            bottom: -$baseSize * 0.75;
+            width: 35%;
+            left: calc(50% - 35% / 2);
+          }
+          .foot {
+            position: absolute;
+            width: 170%;
+            height: $baseSize * 0.25;
+            background: red;
+            bottom: -35%;
+            top: $baseSize * 0.72;
+            right: 7%;
+            transform-origin: 70% 20%;
+            border-bottom: $baseSize * 0.07 solid black;
+            border-top: $baseSize * 0.02 solid yellow;
+            -webkit-clip-path: polygon(
+              48% 0%,
+              100% 0,
+              100% 100%,
+              0 100%,
+              0 45%
+            );
+            clip-path: polygon(48% 0%, 100% 0, 100% 100%, 0 100%, 0 45%);
+            &.footRight {
+              left: 7%;
+              right: initial;
+              transform-origin: 30% 20%;
+              -webkit-clip-path: polygon(
+                48% 0,
+                100% 48%,
+                100% 100%,
+                0 100%,
+                0 0
+              );
+              clip-path: polygon(48% 0, 100% 48%, 100% 100%, 0 100%, 0 0);
+            }
+          }
+        }
+      }
+    }
+    .leftUpThigh {
+      left: -2.5%;
+      .thighShadow {
+        right: 0;
+      }
+    }
+    .rightUpThigh {
+      right: -2.5%;
+      left: initial;
+      .thighShadow {
+        left: 0;
+      }
+    }
+    .thighShadow {
+      width: 30%;
+      height: 100%;
+      position: absolute;
+      background: darkred;
+    }
+  }
+}
+
+.portrait .legAnimWrap{
+	.rightUpThigh{
+		display: none;
+	}
+	*{
+		transform-origin: 50% 50%;
+	}
+	left: 10%;
+	top: -20%;
+	transform: scale(0.15);
+	filter: brightness(0.5);
+	@media screen and (max-width: 768px) and (max-height: 768px){
+		transform: scale(0.55);
+		top: 0;
+	}
+}
