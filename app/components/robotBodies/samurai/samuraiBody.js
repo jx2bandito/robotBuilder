@@ -64,6 +64,10 @@ export default class samuraiBody extends React.Component{
 			  .from(".animationWrapper  .frontPlate.plate1", 1, {
 				y: "-0.25%",
 				onStart: function() {
+					var legAnim = document.querySelector(".animationWrapper .legAnimWrap");
+					if(legAnim){
+						legAnim.style.zIndex = 298;
+					}
 				  document.querySelector(".animationWrapper .armContainerLeft").style.zIndex = 298;
 				  document.querySelector(".animationWrapper .armContainerRight").style.zIndex = 298;
 				},
@@ -77,7 +81,6 @@ export default class samuraiBody extends React.Component{
 				  display: "none",
 				  ease: Power4.easeInOut,
 				  onStart: function() {
-					document.querySelector(".animationWrapper .legAnimWrap").style.zIndex = 298;
 				  }
 				},
 				"-=.25"
