@@ -30928,8 +30928,10 @@ var samuraiBody = function (_React$Component) {
 			}, "-=.25").from(".animationWrapper  .frontPlate.plate1", 1, {
 				y: "-0.25%",
 				onStart: function onStart() {
-
-					document.querySelector(".animationWrapper .legAnimWrap").style.zIndex = 298;
+					var legAnim = document.querySelector(".animationWrapper .legAnimWrap");
+					if (legAnim) {
+						legAnim.style.zIndex = 298;
+					}
 					document.querySelector(".animationWrapper .armContainerLeft").style.zIndex = 298;
 					document.querySelector(".animationWrapper .armContainerRight").style.zIndex = 298;
 				},
