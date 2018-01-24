@@ -18,6 +18,7 @@ export default class App extends React.Component{
 	}
 	
 	changePart(partType, partName){
+		
 		if(!/(currentHead|currentBody|currentArms|currentLegs)/.test(partType)){
 			//Limit power of changePart
 			console.log("Cannot use changePart in app.js to change unrelated states");
@@ -25,13 +26,14 @@ export default class App extends React.Component{
 		}
 		
 		this.setState({[partType]: partName})
+		
 	}
 	
 	render(){
-		let Head = headList[this.state.currentHead].display; 
-		let Body = bodyList[this.state.currentBody].display; 
-		let Arms = armsList[this.state.currentArms].display; 
-		let Legs = legsList[this.state.currentLegs].display; 
+		let Head = headList[this.state.currentHead].animate; 
+		let Body = bodyList[this.state.currentBody].animate; 
+		let Arms = armsList[this.state.currentArms].animate; 
+		let Legs = legsList[this.state.currentLegs].animate; 
 		
 		return (
 			<div>
