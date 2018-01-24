@@ -5,7 +5,6 @@ import BodySelect from "./bodySelect.js";
 import ArmsSelect from "./armsSelect.js";
 import LegsSelect from "./legsSelect.js";
 
-import SamuraiHead from "./../../robotHeads/samurai/samuraiHead.js";
 import {headList, bodyList, armsList, legsList} from "./../../partsList.js";
 
 const partsArray = {
