@@ -6,7 +6,64 @@ export default class samuraiLegs extends React.Component{
 	constructor(props){
 		super(props);
 	}
-
+	
+	componentDidMount(){
+		let speed = 1.5;
+			
+		let samuraiLegTL = new TimelineMax({});
+		samuraiLegTL
+		  .from(".animationWrapper .samuraiLegs", 1, {
+			y: "600%",
+			display: "none"
+		  })
+		  .from(".animationWrapper .leftUpThigh", 1, {
+			  x: "-600%",
+			  display: "none"
+			},
+			"upThigh"
+		  )
+		  .from(".animationWrapper .rightUpThigh", 1, {
+			  x: "600%",
+			  display: "none"
+			},
+			"upThigh"
+		  )
+		  .from(".animationWrapper .lowerThigh", 1, {
+			rotationX: "-90deg"
+		  })
+		  .from(".animationWrapper .shin", 1, {
+			  rotationX: "-90deg"
+			},
+			"-=0.5"
+		  )
+		  .fromTo(".animationWrapper .footWrapper", 1, {
+			  y: "-600%"
+			},
+			{
+			  y: "300%"
+			},
+			"footdown"
+		  )
+		  .from(".animationWrapper .foot, .animationWrapper .footConnector", 1, {
+			  display: "none"
+			},
+			"footdown"
+		  )
+		  .from(".animationWrapper .footLeft", 1, {
+			  rotationZ: "-90deg"
+			},
+			"footRotate"
+		  )
+		  .from(".animationWrapper .footRight", 1, {
+			  rotationZ: "90deg"
+			},
+			"footRotate"
+		  )
+		  .to(".animationWrapper .footWrapper", 1, {
+			y: "0%"
+		  })
+		  .timeScale(speed);
+	}
 	
 	render(){
 		return (
